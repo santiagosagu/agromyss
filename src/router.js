@@ -24,6 +24,8 @@ const RouterUser = () => {
 
         <Route exact path="/sobre-agromyss" component={SobreAgromyss} />
         <Route exact path="/sobre-agromyss/:item" component={SobreAgromyss} />
+
+        <Route exact path="/sustentabilidad" component={Sustentabilidad} />
         <Route
           exact
           path="/sustentabilidad/:item"
