@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Styled from "@emotion/styled";
 import idiomaContext from "../context/idioma/idiomaContext";
 import imagenPrincipal from "../imagenes/imagen-principal-sobre-agromyss.jpg";
 import Header from "../components/Header";
 import SobreAgromyssEspañol from "../modules/sobreAgromyss/español";
 import SobreAgromyssIngles from "../modules/sobreAgromyss/ingles";
+import { animateScroll as scroll } from "react-scroll";
 
 const Contenedor = Styled.div`
     @media(min-width: 1200px){
@@ -38,6 +39,66 @@ const Contenedor = Styled.div`
 const SobreAgromyss = ({ match }) => {
   /* context para el idioma */
   const { idioma } = useContext(idiomaContext);
+  const [userScroll, setUserScroll] = useState(0);
+
+  const url = match.params.item;
+  const width = window.innerWidth;
+
+  useEffect(() => {
+    if (idioma === "español") {
+      if (!url) {
+        setUserScroll(0);
+      }
+
+      if (url === "responsabilidad-social-y-ambiental") {
+        setUserScroll(width > 1000 ? 600 : 1100);
+      }
+
+      if (url === "codigo-de-conducta-del-proveedor") {
+        setUserScroll(width > 1000 ? 800 : 1700);
+      }
+
+      if (url === "declaracion-de-esclavitud-moderna") {
+        setUserScroll(width > 1000 ? 1150 : 2550);
+      }
+
+      if (url === "politica-ambiental-y-social") {
+        setUserScroll(width > 1000 ? 1300 : 3040);
+      }
+
+      if (url === "politica-de-inquietudes-eticas") {
+        setUserScroll(width > 1000 ? 1300 : 3900);
+      }
+    }
+
+    if (idioma === "ingles") {
+      if (!url) {
+        setUserScroll(0);
+      }
+
+      if (url === "responsabilidad-social-y-ambiental") {
+        setUserScroll(width > 1000 ? 600 : 1100);
+      }
+
+      if (url === "codigo-de-conducta-del-proveedor") {
+        setUserScroll(width > 1000 ? 800 : 1700);
+      }
+
+      if (url === "declaracion-de-esclavitud-moderna") {
+        setUserScroll(width > 1000 ? 1150 : 2550);
+      }
+
+      if (url === "politica-ambiental-y-social") {
+        setUserScroll(width > 1000 ? 1300 : 3040);
+      }
+
+      if (url === "politica-de-inquietudes-eticas") {
+        setUserScroll(width > 1000 ? 1300 : 3900);
+      }
+    }
+  }, [url, width, idioma]);
+
+  scroll.scrollTo(userScroll);
 
   return (
     <Contenedor>
