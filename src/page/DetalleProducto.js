@@ -106,7 +106,7 @@ const Contenedor = Styled.div`
             display: grid;
             grid-template-columns: 50% 50%;
             grid-gap: 1rem;
-            height: 450px;
+            height: 500px;
             padding: 3rem 6rem;
         }
 
@@ -120,6 +120,7 @@ const Contenedor = Styled.div`
             background-repeat: no-repeat;
 
             @media(min-width: 1200px){
+              height: 450px;
                 padding: 2rem 5rem;
             }
         }

@@ -831,24 +831,6 @@ const Header = () => {
                     <li>
                       <Link to="/contacto">Contact</Link>
                     </li>
-
-                    <div className="auth">
-                      {autenticado ? (
-                        <>
-                          <li>Hello: {autenticado.displayName}</li>
-                          <li onClick={cerrarSesion}>logout</li>
-                        </>
-                      ) : (
-                        <>
-                          <li>
-                            <Link to="/iniciar-sesion">login</Link>
-                          </li>
-                          <li>
-                            <Link to="/crear-cuenta">create Account</Link>
-                          </li>
-                        </>
-                      )}
-                    </div>
                   </div>
                 </>
               )}
@@ -861,8 +843,8 @@ const Header = () => {
             >
               {autenticado ? (
                 <>
-                  <li>Hola: {autenticado.displayName}</li>
-                  <li onClick={cerrarSesion}>Cerrar Sesion</li>
+                  <li>Hello: {autenticado.displayName}</li>
+                  <li onClick={cerrarSesion}>Logout</li>
                 </>
               ) : (
                 <>
@@ -872,7 +854,11 @@ const Header = () => {
             </div>
             <div
               className="dropdown dropstart"
-              style={{ display: "flex", alignItems: "center" }}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-end",
+              }}
             >
               <button
                 type="button"
