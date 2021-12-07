@@ -5,6 +5,8 @@ import authContext from "../context/auth/authContext";
 import UseEnlaces from "../hooks/UseEnlaces";
 import { Link } from "react-router-dom";
 import Registro from "./Registro";
+import CarritoIcon from "../components/carrito/CarritoIcon";
+import Button from "@mui/material/Button";
 
 const Contenedor = Styled.div`
         width: 100%;
@@ -21,6 +23,11 @@ const Contenedor = Styled.div`
           align-items: center;
           justify-content: space-between;
           padding: 0.5rem;
+        }
+
+        .logo {
+          display: flex;
+          justify-content: center;
         }
 
         .auth-escritorio{
@@ -504,12 +511,28 @@ const Header = () => {
                     <div className="auth">
                       {autenticado ? (
                         <>
-                          <li>Hola: {autenticado.displayName}</li>
-                          <li onClick={cerrarSesion}>Cerrar Sesion</li>
+                          <li>
+                            <p style={{ fontWeight: "400" }}>
+                              Hola: {autenticado.displayName}
+                            </p>
+                          </li>
+                          <Button
+                            variant="contained"
+                            color="error"
+                            onClick={cerrarSesion}
+                          >
+                            Cerrar Sesion
+                          </Button>
                         </>
                       ) : (
                         <>
-                          <li onClick={() => setMiPerfil(true)}>Ingresar</li>
+                          <Button
+                            variant="contained"
+                            color="success"
+                            onClick={() => setMiPerfil(true)}
+                          >
+                            Ingresar
+                          </Button>
                         </>
                       )}
                     </div>
@@ -525,12 +548,27 @@ const Header = () => {
             >
               {autenticado ? (
                 <>
-                  <li>Hola: {autenticado.displayName}</li>
-                  <li onClick={cerrarSesion}>Cerrar Sesion</li>
+                  <CarritoIcon />
+                  <li style={{ fontWeight: "bold" }}>
+                    HOLA: {autenticado.displayName}
+                  </li>
+                  <Button
+                    variant="contained"
+                    color="error"
+                    onClick={cerrarSesion}
+                  >
+                    Cerrar Sesion
+                  </Button>
                 </>
               ) : (
                 <>
-                  <li onClick={() => setMiPerfil(true)}>Ingresar</li>
+                  <Button
+                    variant="contained"
+                    color="success"
+                    onClick={() => setMiPerfil(true)}
+                  >
+                    Ingresar
+                  </Button>
                 </>
               )}
             </div>
@@ -729,7 +767,7 @@ const Header = () => {
                                   Planning and development of agro-industry
                                   proyects
                                 </li>
-                                <li>Agro-ecoturism</li>
+                                <li>Agro-ecoturismo</li>
                               </ul>
                             </div>
                           )}
@@ -843,8 +881,16 @@ const Header = () => {
             >
               {autenticado ? (
                 <>
+                  <CarritoIcon />
+
                   <li>Hello: {autenticado.displayName}</li>
-                  <li onClick={cerrarSesion}>Logout</li>
+                  <Button
+                    variant="contained"
+                    color="error"
+                    onClick={cerrarSesion}
+                  >
+                    Logout
+                  </Button>
                 </>
               ) : (
                 <>
