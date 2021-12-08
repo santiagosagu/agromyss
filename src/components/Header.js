@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Registro from "./Registro";
 import CarritoIcon from "../components/carrito/CarritoIcon";
 import Button from "@mui/material/Button";
+import CarritoModal from "./carrito/CarritoModal";
 
 const Contenedor = Styled.div`
         width: 100%;
@@ -239,6 +240,10 @@ const Header = () => {
     mostrarSustentabilidad,
     mostrarSobreAgromyss,
   } = UseEnlaces();
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <Contenedor>
@@ -511,6 +516,7 @@ const Header = () => {
                     <div className="auth">
                       {autenticado ? (
                         <>
+                          <CarritoIcon handleOpen={handleOpen} />
                           <li>
                             <p style={{ fontWeight: "400" }}>
                               Hola: {autenticado.displayName}
@@ -548,7 +554,8 @@ const Header = () => {
             >
               {autenticado ? (
                 <>
-                  <CarritoIcon />
+                  <CarritoIcon handleOpen={handleOpen} />
+                  <CarritoModal open={open} handleClose={handleClose} />
                   <li style={{ fontWeight: "bold" }}>
                     HOLA: {autenticado.displayName}
                   </li>

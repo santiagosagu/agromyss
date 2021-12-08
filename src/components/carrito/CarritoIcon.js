@@ -3,6 +3,7 @@ import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { CarritoContext } from "../../context/carritoContext/CarritoContext";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -15,10 +16,12 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
-export default function CarritoIcon() {
+export default function CarritoIcon({ handleOpen }) {
+  const { carritoArray } = React.useContext(CarritoContext);
+
   return (
-    <IconButton aria-label="cart">
-      <StyledBadge badgeContent={4} color="secondary">
+    <IconButton aria-label="cart" onClick={handleOpen}>
+      <StyledBadge badgeContent={carritoArray.length} color="secondary">
         <ShoppingCartIcon style={{ color: "#3a1414" }} />
       </StyledBadge>
     </IconButton>
