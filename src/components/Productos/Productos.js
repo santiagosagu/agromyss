@@ -3,6 +3,7 @@ import idiomaContext from "../../context/idioma/idiomaContext";
 import Styled from "@emotion/styled";
 import Header from "../Header";
 import { CarritoContext } from "../../context/carritoContext/CarritoContext";
+import { useEnlacesContext } from "../../context/enlaces/UseEnlaces";
 
 const Contenedor = Styled.div`
 
@@ -252,6 +253,8 @@ const Productos = ({ match, history }) => {
   /* hooks para el idioma */
   const { idioma } = useContext(idiomaContext);
 
+  const { ocultarEnlaces } = useContext(useEnlacesContext);
+
   useEffect(() => {
     if (idioma === "español") {
       const resultado = productos.filter((item) => item.url === params);
@@ -273,7 +276,7 @@ const Productos = ({ match, history }) => {
   return (
     <>
       <Header />
-      <Contenedor>
+      <Contenedor onMouseOver={ocultarEnlaces}>
         {idioma === "español" && (
           <>
             {producto.map((item) => (

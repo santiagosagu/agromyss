@@ -14,6 +14,7 @@ import galeria8 from "../imagenes/imagen-galeria-8.jpg";
 import VideoCorporativo from "../components/VideoCorporativo";
 import iconoIndustria from "../imagenes/icono-industria.svg";
 import iconoServicios from "../imagenes/icono-servicios.svg";
+import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
 
 const Contenedor = Styled.div`
     .banner{
@@ -45,12 +46,14 @@ const Contenedor = Styled.div`
         }
 
         @media(min-width: 1200px){
+          margin-top: 4rem;
             height: 500px;
             color: #fff;
             background-image: url(${imagen});
             background-position: center center;
             background-attachment: fixed;
             div{
+              padding: 0 2rem;
                 width: 100%;
                 height: 100%;
                 display: flex;
@@ -258,95 +261,100 @@ const Home = () => {
   /* context para el idioma */
   const { idioma } = useContext(idiomaContext);
 
+  const { ocultarEnlaces } = useContext(useEnlacesContext);
+
   return (
     <Contenedor>
       {idioma === "español" && (
         <>
           <Header />
-          <div className="banner">
-            <div>
-              <h4>
-                <span>Reconocemos</span> en la tierra lo más valioso que
-                tenemos, estamos convencidos que de la armonía del hombre con el
-                medio florece el bienestar. Sabemos que en lo natural está la
-                respuesta a muchas cosas, valoramos el pasado y creemos en el
-                futuro
-              </h4>
+          <div onMouseOver={ocultarEnlaces}>
+            <div className="banner">
+              <div>
+                <h4>
+                  <span>Reconocemos</span> en la tierra lo más valioso que
+                  tenemos, estamos convencidos que de la armonía del hombre con
+                  el medio florece el bienestar. Sabemos que en lo natural está
+                  la respuesta a muchas cosas, valoramos el pasado y creemos en
+                  el futuro
+                </h4>
+              </div>
             </div>
-          </div>
-          <VideoCorporativo />
+            <VideoCorporativo />
 
-          {/*  <div className='slogan'>
+            {/*  <div className='slogan'>
 
                         <img src="https://www.vtv.gob.ve/wp-content/uploads/2020/10/Cacao-en-Miranda.jpg" alt="imagen-cultivos" />
                         <p><span> Reconocemos </span>en la tierra lo más valioso que tenemos, estamos convencidos que de la armonía del hombre con el medio florece el bienestar. Sabemos que en lo natural está la respuesta a muchas cosas, valoramos el pasado y creemos en el futuro</p>
                     </div> */}
 
-          <div className="division">
-            <div>
-              <p>
-                Buscamos resaltar los sabores naturales del cacao, brindando una
-                experiencia inolvidable al consumidor a traves del mejoramiento
-                continuo enfocado a un desarrollo sostenible y sustentable.
-              </p>
-            </div>
-          </div>
-
-          <div className="sesion-productos-servicios">
-            <div className="cards">
-              <div className="card-icono">
-                <img src={iconoIndustria} alt="" />
-              </div>
-              <div className="card-contenido">
-                <h2>Industria</h2>
+            <div className="division">
+              <div>
                 <p>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Ipsum quam corporis error eligendi{" "}
+                  Buscamos resaltar los sabores naturales del cacao, brindando
+                  una experiencia inolvidable al consumidor a traves del
+                  mejoramiento continuo enfocado a un desarrollo sostenible y
+                  sustentable.
                 </p>
               </div>
             </div>
-            <div className="cards">
-              <div className="card-icono">
-                <img src={iconoServicios} alt="" />
-              </div>
-              <div className="card-contenido">
-                <h2>Servicios</h2>
-                <p>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Ipsum quam corporis error eligendi{" "}
-                </p>
-              </div>
-            </div>
-          </div>
 
-          <div className="titulo-galeria">
-            <h2>Galeria</h2>
-            <hr />
-          </div>
-          <div className="galeria">
-            <div className="item-a">
-              <img src={galeria1} alt="imagen-galeria-agromyss" />
+            <div className="sesion-productos-servicios">
+              <div className="cards">
+                <div className="card-icono">
+                  <img src={iconoIndustria} alt="" />
+                </div>
+                <div className="card-contenido">
+                  <h2>Industria</h2>
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Ipsum quam corporis error eligendi{" "}
+                  </p>
+                </div>
+              </div>
+              <div className="cards">
+                <div className="card-icono">
+                  <img src={iconoServicios} alt="" />
+                </div>
+                <div className="card-contenido">
+                  <h2>Servicios</h2>
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Ipsum quam corporis error eligendi{" "}
+                  </p>
+                </div>
+              </div>
             </div>
-            <div>
-              <img src={galeria2} alt="imagen-galeria-agromyss" />
+
+            <div className="titulo-galeria">
+              <h2>Galeria</h2>
+              <hr />
             </div>
-            <div className="item-b">
-              <img src={galeria8} alt="imagen-galeria-agromyss" />
-            </div>
-            <div>
-              <img src={galeria4} alt="imagen-galeria-agromyss" />
-            </div>
-            <div className="item-c">
-              <img src={galeria5} alt="imagen-galeria-agromyss" />
-            </div>
-            <div>
-              <img src={galeria6} alt="imagen-galeria-agromyss" />
-            </div>
-            <div>
-              <img src={galeria7} alt="imagen-galeria-agromyss" />
-            </div>
-            <div className="item-d">
-              <img src={galeria3} alt="imagen-galeria-agromyss" />
+            <div className="galeria">
+              <div className="item-a">
+                <img src={galeria1} alt="imagen-galeria-agromyss" />
+              </div>
+              <div>
+                <img src={galeria2} alt="imagen-galeria-agromyss" />
+              </div>
+              <div className="item-b">
+                <img src={galeria8} alt="imagen-galeria-agromyss" />
+              </div>
+              <div>
+                <img src={galeria4} alt="imagen-galeria-agromyss" />
+              </div>
+              <div className="item-c">
+                <img src={galeria5} alt="imagen-galeria-agromyss" />
+              </div>
+              <div>
+                <img src={galeria6} alt="imagen-galeria-agromyss" />
+              </div>
+              <div>
+                <img src={galeria7} alt="imagen-galeria-agromyss" />
+              </div>
+              <div className="item-d">
+                <img src={galeria3} alt="imagen-galeria-agromyss" />
+              </div>
             </div>
           </div>
         </>
@@ -354,90 +362,93 @@ const Home = () => {
       {idioma === "ingles" && (
         <>
           <Header />
-          <div className="banner">
-            <div>
-              <h4>
-                <span>We Recognize</span> the ground as the most value thing we
-                have; we are convinced that the armony of men with the
-                environment brings the welfare. We know the answer of many
-                things come from the natural, we value the past and believe on
-                the future.
-              </h4>
-            </div>
-          </div>
-          <VideoCorporativo />
 
-          {/*  <div className='slogan'>
+          <div onMouseOver={ocultarEnlaces}>
+            <div className="banner">
+              <div>
+                <h4>
+                  <span>We Recognize</span> the ground as the most value thing
+                  we have; we are convinced that the armony of men with the
+                  environment brings the welfare. We know the answer of many
+                  things come from the natural, we value the past and believe on
+                  the future.
+                </h4>
+              </div>
+            </div>
+            <VideoCorporativo />
+
+            {/*  <div className='slogan'>
 
                     <img src="https://www.vtv.gob.ve/wp-content/uploads/2020/10/Cacao-en-Miranda.jpg" alt="imagen-cultivos" />
                     <p><span> Reconocemos </span>en la tierra lo más valioso que tenemos, estamos convencidos que de la armonía del hombre con el medio florece el bienestar. Sabemos que en lo natural está la respuesta a muchas cosas, valoramos el pasado y creemos en el futuro</p>
                 </div> */}
 
-          <div className="division">
-            <div>
-              <p>
-                We want to highlight the narutal flavor of cocoa, providing an
-                unforgettable experience to the costumer trough the constant
-                improvement focused on a sustainable development.
-              </p>
-            </div>
-          </div>
-
-          <div className="sesion-productos-servicios">
-            <div className="cards">
-              <div className="card-icono">
-                <img src={iconoIndustria} alt="" />
-              </div>
-              <div className="card-contenido">
-                <h2>Industry</h2>
+            <div className="division">
+              <div>
                 <p>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Ipsum quam corporis error eligendi{" "}
+                  We want to highlight the narutal flavor of cocoa, providing an
+                  unforgettable experience to the costumer trough the constant
+                  improvement focused on a sustainable development.
                 </p>
               </div>
             </div>
-            <div className="cards">
-              <div className="card-icono">
-                <img src={iconoServicios} alt="" />
-              </div>
-              <div className="card-contenido">
-                <h2>Services</h2>
-                <p>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Ipsum quam corporis error eligendi{" "}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="titulo-galeria">
-            <h2>Gallery</h2>
-            <hr />
-          </div>
 
-          <div className="galeria">
-            <div className="item-a">
-              <img src={galeria1} alt="imagen-galeria-agromyss" />
+            <div className="sesion-productos-servicios">
+              <div className="cards">
+                <div className="card-icono">
+                  <img src={iconoIndustria} alt="" />
+                </div>
+                <div className="card-contenido">
+                  <h2>Industry</h2>
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Ipsum quam corporis error eligendi{" "}
+                  </p>
+                </div>
+              </div>
+              <div className="cards">
+                <div className="card-icono">
+                  <img src={iconoServicios} alt="" />
+                </div>
+                <div className="card-contenido">
+                  <h2>Services</h2>
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Ipsum quam corporis error eligendi{" "}
+                  </p>
+                </div>
+              </div>
             </div>
-            <div>
-              <img src={galeria2} alt="imagen-galeria-agromyss" />
+            <div className="titulo-galeria">
+              <h2>Gallery</h2>
+              <hr />
             </div>
-            <div className="item-b">
-              <img src={galeria8} alt="imagen-galeria-agromyss" />
-            </div>
-            <div>
-              <img src={galeria4} alt="imagen-galeria-agromyss" />
-            </div>
-            <div className="item-c">
-              <img src={galeria5} alt="imagen-galeria-agromyss" />
-            </div>
-            <div>
-              <img src={galeria6} alt="imagen-galeria-agromyss" />
-            </div>
-            <div>
-              <img src={galeria7} alt="imagen-galeria-agromyss" />
-            </div>
-            <div className="item-d">
-              <img src={galeria3} alt="imagen-galeria-agromyss" />
+
+            <div className="galeria">
+              <div className="item-a">
+                <img src={galeria1} alt="imagen-galeria-agromyss" />
+              </div>
+              <div>
+                <img src={galeria2} alt="imagen-galeria-agromyss" />
+              </div>
+              <div className="item-b">
+                <img src={galeria8} alt="imagen-galeria-agromyss" />
+              </div>
+              <div>
+                <img src={galeria4} alt="imagen-galeria-agromyss" />
+              </div>
+              <div className="item-c">
+                <img src={galeria5} alt="imagen-galeria-agromyss" />
+              </div>
+              <div>
+                <img src={galeria6} alt="imagen-galeria-agromyss" />
+              </div>
+              <div>
+                <img src={galeria7} alt="imagen-galeria-agromyss" />
+              </div>
+              <div className="item-d">
+                <img src={galeria3} alt="imagen-galeria-agromyss" />
+              </div>
             </div>
           </div>
         </>

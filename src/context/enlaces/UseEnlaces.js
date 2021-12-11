@@ -1,6 +1,8 @@
-import { useState } from "react";
+import React, { useState, createContext } from "react";
 
-const UseEnlaces = () => {
+export const useEnlacesContext = createContext();
+
+const UseEnlaces = (props) => {
   /* state que controla cuando mostrar listado productos y servicios */
   const [verProductosServicios, setVerProductosServicios] = useState(false);
 
@@ -32,8 +34,6 @@ const UseEnlaces = () => {
       setVerProductosServicios(true);
       setVersustentabilidad(false);
       setVerSobreAgromyss(false);
-    } else {
-      setVerProductosServicios(false);
     }
   };
 
@@ -42,8 +42,6 @@ const UseEnlaces = () => {
     if (verIndustria === false) {
       setVerIndustria(true);
       setVerServicios(false);
-    } else {
-      setVerIndustria(false);
     }
   };
 
@@ -52,8 +50,6 @@ const UseEnlaces = () => {
     if (verServicios === false) {
       setVerServicios(true);
       setVerIndustria(false);
-    } else {
-      setVerServicios(false);
     }
   };
 
@@ -63,8 +59,6 @@ const UseEnlaces = () => {
       setVerChocolates(true);
       setVerCacao(false);
       setVerMango(false);
-    } else {
-      setVerChocolates(false);
     }
   };
 
@@ -73,8 +67,6 @@ const UseEnlaces = () => {
       setVerCacao(true);
       setVerChocolates(false);
       setVerMango(false);
-    } else {
-      setVerCacao(false);
     }
   };
 
@@ -83,8 +75,6 @@ const UseEnlaces = () => {
       setVerMango(true);
       setVerCacao(false);
       setVerChocolates(false);
-    } else {
-      setVerMango(false);
     }
   };
 
@@ -98,7 +88,7 @@ const UseEnlaces = () => {
   };
 
   const mostrarSustentabilidad = () => {
-    setVersustentabilidad(!verSustentabilidad);
+    setVersustentabilidad(true);
     if (!verSustentabilidad) {
       setVerProductosServicios(false);
       setVerSobreAgromyss(false);
@@ -106,33 +96,51 @@ const UseEnlaces = () => {
   };
 
   const mostrarSobreAgromyss = () => {
-    setVerSobreAgromyss(!verSobreAgromyss);
+    setVerSobreAgromyss(true);
     if (!verSobreAgromyss) {
       setVerProductosServicios(false);
       setVersustentabilidad(false);
     }
   };
 
-  return {
-    verProductosServicios,
-    verIndustria,
-    verServicios,
-    verChocolates,
-    verCacao,
-    verMango,
-    verEnlaces,
-    verSustentabilidad,
-    verSobreAgromyss,
-    mostrarProductos,
-    mostrarIndustria,
-    mostrarServicios,
-    mostrarChocolates,
-    mostrarCacao,
-    mostrarMango,
-    mostrarenlaces,
-    mostrarSustentabilidad,
-    mostrarSobreAgromyss,
+  const ocultarEnlaces = () => {
+    setVerProductosServicios(false);
+    setVerIndustria(false);
+    setVerServicios(false);
+    setVerChocolates(false);
+    setVerCacao(false);
+    setVerMango(false);
+    setVersustentabilidad(false);
+    setVerSobreAgromyss(false);
   };
+
+  return (
+    <useEnlacesContext.Provider
+      value={{
+        verProductosServicios,
+        verIndustria,
+        verServicios,
+        verChocolates,
+        verCacao,
+        verMango,
+        verEnlaces,
+        verSustentabilidad,
+        verSobreAgromyss,
+        mostrarProductos,
+        mostrarIndustria,
+        mostrarServicios,
+        mostrarChocolates,
+        mostrarCacao,
+        mostrarMango,
+        mostrarenlaces,
+        mostrarSustentabilidad,
+        mostrarSobreAgromyss,
+        ocultarEnlaces,
+      }}
+    >
+      {props.children}
+    </useEnlacesContext.Provider>
+  );
 };
 
 export default UseEnlaces;

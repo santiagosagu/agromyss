@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import SobreAgromyssEspañol from "../modules/sobreAgromyss/español";
 import SobreAgromyssIngles from "../modules/sobreAgromyss/ingles";
 import { animateScroll as scroll } from "react-scroll";
+import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
 
 const Contenedor = Styled.div`
     @media(min-width: 1200px){
@@ -40,6 +41,8 @@ const SobreAgromyss = ({ match }) => {
   /* context para el idioma */
   const { idioma } = useContext(idiomaContext);
   const [userScroll, setUserScroll] = useState(0);
+
+  const { ocultarEnlaces } = useContext(useEnlacesContext);
 
   const url = match.params.item;
   const width = window.innerWidth;
@@ -104,15 +107,21 @@ const SobreAgromyss = ({ match }) => {
     <Contenedor>
       <Header />
 
-      {idioma === "español" ? <h1>Sobre Agromyss</h1> : <h1>About Agromyss</h1>}
+      <div onMouseOver={ocultarEnlaces}>
+        {idioma === "español" ? (
+          <h1>Sobre Agromyss</h1>
+        ) : (
+          <h1>About Agromyss</h1>
+        )}
 
-      <div className="contenedor-imagen"></div>
+        <div className="contenedor-imagen"></div>
 
-      {idioma === "español" ? (
-        <SobreAgromyssEspañol />
-      ) : (
-        <SobreAgromyssIngles />
-      )}
+        {idioma === "español" ? (
+          <SobreAgromyssEspañol />
+        ) : (
+          <SobreAgromyssIngles />
+        )}
+      </div>
     </Contenedor>
   );
 };

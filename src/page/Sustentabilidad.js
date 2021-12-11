@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import SustentabilidadEspañol from "../modules/sustentabilidad/español";
 import SustentabilidadIngles from "../modules/sustentabilidad/ingles";
 import { animateScroll as scroll } from "react-scroll";
+import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
 
 const Contenedor = Styled.div`
     @media(min-width: 1200px){
@@ -83,6 +84,8 @@ const Sustentabilidad = ({ match }) => {
 
   const [userScroll, setUserScroll] = useState(0);
 
+  const { ocultarEnlaces } = useContext(useEnlacesContext);
+
   const url = match.params.item;
   const width = window.innerWidth;
 
@@ -148,19 +151,21 @@ const Sustentabilidad = ({ match }) => {
     <Contenedor>
       <Header />
 
-      {idioma === "español" ? (
-        <h1>Sustentabilidad</h1>
-      ) : (
-        <h1>Sustainability</h1>
-      )}
+      <div onMouseOver={ocultarEnlaces}>
+        {idioma === "español" ? (
+          <h1>Sustentabilidad</h1>
+        ) : (
+          <h1>Sustainability</h1>
+        )}
 
-      <div className="contenedor-imagen"></div>
+        <div className="contenedor-imagen"></div>
 
-      {idioma === "español" ? (
-        <SustentabilidadEspañol />
-      ) : (
-        <SustentabilidadIngles />
-      )}
+        {idioma === "español" ? (
+          <SustentabilidadEspañol />
+        ) : (
+          <SustentabilidadIngles />
+        )}
+      </div>
     </Contenedor>
   );
 };

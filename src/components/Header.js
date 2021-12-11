@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Styled from "@emotion/styled";
 import idiomaContext from "../context/idioma/idiomaContext";
 import authContext from "../context/auth/authContext";
-import UseEnlaces from "../hooks/UseEnlaces";
+import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
 import { Link } from "react-router-dom";
 import Registro from "./Registro";
 import CarritoIcon from "../components/carrito/CarritoIcon";
@@ -142,7 +142,7 @@ const Contenedor = Styled.div`
                     @media(min-width: 1200px){
                         
                         width: 9rem;  
-                        margin: 1rem ;
+                        /* margin: 1rem ; */
                         display: flex;
                         flex-direction: column;
                         position: fixed;
@@ -169,8 +169,8 @@ const Contenedor = Styled.div`
 
                 @media(min-width: 1200px){
                     position: absolute; 
-                    top: 3.8rem;
-                    left: 62%;
+                    top: 2rem;
+                    left: 66%;
                     width: 100%;
                     
 
@@ -190,7 +190,7 @@ const Contenedor = Styled.div`
                 @media(min-width: 1200px){
                     position: absolute; 
                     margin-top: 0;
-                    left: 60%;
+                    left: 68%;
                     width: 90%;
                 }
             }
@@ -239,7 +239,7 @@ const Header = () => {
     mostrarenlaces,
     mostrarSustentabilidad,
     mostrarSobreAgromyss,
-  } = UseEnlaces();
+  } = useContext(useEnlacesContext);
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -270,7 +270,7 @@ const Header = () => {
                       </Link>{" "}
                     </li>
                     <div className="productos-servicios">
-                      <li onClick={() => mostrarProductos()}>
+                      <li onMouseOver={() => mostrarProductos()}>
                         {" "}
                         Productos y Servicios{" "}
                         <i className="fas fa-angle-down"></i>
@@ -278,11 +278,13 @@ const Header = () => {
 
                       {verProductosServicios && (
                         <ul>
-                          <li onClick={() => mostrarIndustria()}>productos </li>
+                          <li onMouseOver={() => mostrarIndustria()}>
+                            productos{" "}
+                          </li>
                           {verIndustria && (
                             <div className="industria">
                               <ul>
-                                <li onClick={() => mostrarChocolates()}>
+                                <li onMouseOver={() => mostrarChocolates()}>
                                   Chocolates{" "}
                                 </li>
                                 <div className="chocolates">
@@ -343,7 +345,9 @@ const Header = () => {
                                   )}
                                 </div>
 
-                                <li onClick={() => mostrarCacao()}>Cacao</li>
+                                <li onMouseOver={() => mostrarCacao()}>
+                                  Cacao
+                                </li>
                                 <div className="chocolates">
                                   {verCacao && (
                                     <ul>
@@ -368,7 +372,9 @@ const Header = () => {
                                     </ul>
                                   )}
                                 </div>
-                                <li onClick={() => mostrarMango()}>Mangos</li>
+                                <li onMouseOver={() => mostrarMango()}>
+                                  Mangos
+                                </li>
                                 <div className="chocolates">
                                   {verMango && (
                                     <ul>
@@ -402,7 +408,9 @@ const Header = () => {
                               </ul>
                             </div>
                           )}
-                          <li onClick={() => mostrarServicios()}>Servicios</li>
+                          <li onMouseOver={() => mostrarServicios()}>
+                            Servicios
+                          </li>
                           {verServicios && (
                             <div className="industria">
                               <ul>
@@ -418,7 +426,7 @@ const Header = () => {
                       )}
                     </div>
                     <div className="productos-servicios">
-                      <li onMouseOut={() => mostrarSustentabilidad()}>
+                      <li onMouseOver={mostrarSustentabilidad}>
                         <Link to="/sustentabilidad">
                           Sustentabilidad <i className="fas fa-angle-down"></i>
                         </Link>
@@ -467,12 +475,12 @@ const Header = () => {
                       )}
                     </div>
                     <div className="productos-servicios">
-                      <li onMouseOut={() => mostrarSobreAgromyss()}>
+                      <li onMouseOver={() => mostrarSobreAgromyss()}>
                         <Link to="/sobre-agromyss">
                           Sobre Agromyss{" "}
                           <i
                             className="fas fa-angle-down"
-                            onMouseOut={() => mostrarSobreAgromyss()}
+                            onMouseOver={() => mostrarSobreAgromyss()}
                           ></i>
                         </Link>
                       </li>
@@ -640,7 +648,7 @@ const Header = () => {
                       </Link>{" "}
                     </li>
                     <div className="productos-servicios">
-                      <li onClick={() => mostrarProductos()}>
+                      <li onMouseOver={() => mostrarProductos()}>
                         {" "}
                         Products and Services{" "}
                         <i className="fas fa-angle-down"></i>
@@ -648,11 +656,13 @@ const Header = () => {
 
                       {verProductosServicios && (
                         <ul>
-                          <li onClick={() => mostrarIndustria()}>Industry </li>
+                          <li onMouseOver={() => mostrarIndustria()}>
+                            Industry{" "}
+                          </li>
                           {verIndustria && (
                             <div className="industria">
                               <ul>
-                                <li onClick={() => mostrarChocolates()}>
+                                <li onMouseOver={() => mostrarChocolates()}>
                                   Chocolate{" "}
                                 </li>
                                 <div className="chocolates">
@@ -710,7 +720,9 @@ const Header = () => {
                                   )}
                                 </div>
 
-                                <li onClick={() => mostrarCacao()}>Cocoa</li>
+                                <li onMouseOver={() => mostrarCacao()}>
+                                  Cocoa
+                                </li>
                                 <div className="chocolates">
                                   {verCacao && (
                                     <ul>
@@ -735,7 +747,9 @@ const Header = () => {
                                     </ul>
                                   )}
                                 </div>
-                                <li onClick={() => mostrarMango()}>Mangos</li>
+                                <li onMouseOver={() => mostrarMango()}>
+                                  Mangos
+                                </li>
                                 <div className="chocolates">
                                   {verMango && (
                                     <ul>
@@ -766,7 +780,9 @@ const Header = () => {
                               </ul>
                             </div>
                           )}
-                          <li onClick={() => mostrarServicios()}>Services</li>
+                          <li onMouseOver={() => mostrarServicios()}>
+                            Services
+                          </li>
                           {verServicios && (
                             <div className="industria">
                               <ul>
@@ -783,7 +799,7 @@ const Header = () => {
                     </div>
 
                     <div className="productos-servicios">
-                      <li onMouseOut={() => mostrarSustentabilidad()}>
+                      <li onMouseOver={mostrarSustentabilidad}>
                         <Link to="/sustentabilidad">
                           Sustainability <i className="fas fa-angle-down"></i>
                         </Link>
@@ -832,12 +848,12 @@ const Header = () => {
                       )}
                     </div>
                     <div className="productos-servicios">
-                      <li onMouseOut={() => mostrarSobreAgromyss()}>
+                      <li onMouseOver={mostrarSobreAgromyss}>
                         <Link to="/sobre-agromyss">
                           About Agromyss
                           <i
                             className="fas fa-angle-down"
-                            onMouseOut={() => mostrarSobreAgromyss()}
+                            onMouseOver={() => mostrarSobreAgromyss()}
                           ></i>
                         </Link>
                       </li>

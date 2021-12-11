@@ -63,8 +63,6 @@ const Card = styled.div`
 export default function CarritoModal({ open, handleClose }) {
   const { carritoArray, eliminarProductoCarrito } = useContext(CarritoContext);
 
-  console.log(carritoArray);
-
   return (
     <div>
       <Modal

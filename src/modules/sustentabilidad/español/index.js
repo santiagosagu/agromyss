@@ -27,6 +27,10 @@ const Component = Styled.div`
         }
   .container {
     margin-bottom: 4rem;
+
+    img {
+      width: 100%;
+    }
   }
 `;
 

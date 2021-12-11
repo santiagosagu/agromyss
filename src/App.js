@@ -4,18 +4,21 @@ import CarritoState from "./context/carritoContext/CarritoContext";
 
 /* context */
 import IdiomaState from "./context/idioma/idiomaState";
+import UseEnlaces from "./context/enlaces/UseEnlaces";
 import RouterUser from "./router";
 
 function App() {
   return (
     <>
-      <CarritoState>
-        <IdiomaState>
-          <AuthState>
-            <RouterUser />
-          </AuthState>
-        </IdiomaState>
-      </CarritoState>
+      <UseEnlaces>
+        <CarritoState>
+          <IdiomaState>
+            <AuthState>
+              <RouterUser />
+            </AuthState>
+          </IdiomaState>
+        </CarritoState>
+      </UseEnlaces>
     </>
   );
 }
