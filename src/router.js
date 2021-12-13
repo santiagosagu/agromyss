@@ -8,6 +8,7 @@ import SobreAgromyss from "./page/SobreAgromyss";
 import Sustentabilidad from "./page/Sustentabilidad";
 import VideoCorporativoPagina from "./page/VideoCorporativoPagina";
 import Productos from "./components/Productos/Productos";
+import Admin from "./page/Admin";
 
 const RouterUser = () => {
   return (
@@ -31,6 +32,8 @@ const RouterUser = () => {
           path="/sustentabilidad/:item"
           component={Sustentabilidad}
         />
+
+        <Route exact path="/admin" component={Admin} />
 
         {/* productos chocolates */}
         <Route

@@ -61,7 +61,10 @@ const Card = styled.div`
 `;
 
 export default function CarritoModal({ open, handleClose }) {
-  const { carritoArray, eliminarProductoCarrito } = useContext(CarritoContext);
+  const { carritoArray, eliminarProductoCarrito, carritoUsuario } =
+    useContext(CarritoContext);
+
+  console.log(carritoUsuario);
 
   return (
     <div>
@@ -81,14 +84,14 @@ export default function CarritoModal({ open, handleClose }) {
             Carrito de Compras
           </Typography>
           <div id="modal-modal-description" sx={{ mt: 2 }}>
-            {carritoArray.map((item) => (
+            {carritoUsuario?.map((item) => (
               <Card>
                 <div className="content-img">
-                  <img src={item.img[0]} alt="producto-carrito" />
+                  <img src={item.producto?.img[0]} alt="producto-carrito" />
                 </div>
                 <div className="content-description">
-                  <h4>{item.nombre}</h4>
-                  <h3>$ {item.precio}</h3>
+                  <h4>{item.producto.nombre}</h4>
+                  <h3>$ {item.producto.precio}</h3>
                 </div>
                 <div className="content-close">
                   <CloseIcon
@@ -100,7 +103,7 @@ export default function CarritoModal({ open, handleClose }) {
             ))}
           </div>
 
-          {carritoArray.length === 0 && (
+          {carritoArray?.length === 0 && (
             <h2 style={{ textAlign: "center", marginTop: "2rem" }}>
               Aun no has agregado productos
             </h2>

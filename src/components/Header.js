@@ -216,7 +216,7 @@ const Header = () => {
   /* context para el idioma */
   const { idioma, setIdioma } = useContext(idiomaContext);
 
-  const { miPerfil, autenticado, cerrarSesion, setMiPerfil } =
+  const { miPerfil, autenticado, cerrarSesion, setMiPerfil, isAdmin } =
     useContext(authContext);
 
   /* hooks */
@@ -244,6 +244,8 @@ const Header = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  console.log(isAdmin);
 
   return (
     <Contenedor>
@@ -520,6 +522,11 @@ const Header = () => {
                     <li>
                       <Link to="/contacto">Contactenos</Link>
                     </li>
+                    {isAdmin && (
+                      <li>
+                        <Link to="/admin">Admin</Link>
+                      </li>
+                    )}
 
                     <div className="auth">
                       {autenticado ? (

@@ -10,15 +10,15 @@ import RouterUser from "./router";
 function App() {
   return (
     <>
-      <UseEnlaces>
-        <CarritoState>
-          <IdiomaState>
-            <AuthState>
+      <AuthState>
+        <IdiomaState>
+          <CarritoState>
+            <UseEnlaces>
               <RouterUser />
-            </AuthState>
-          </IdiomaState>
-        </CarritoState>
-      </UseEnlaces>
+            </UseEnlaces>
+          </CarritoState>
+        </IdiomaState>
+      </AuthState>
     </>
   );
 }

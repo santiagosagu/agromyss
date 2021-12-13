@@ -253,6 +253,8 @@ const Productos = ({ match, history }) => {
   /* hooks para el idioma */
   const { idioma } = useContext(idiomaContext);
 
+  const { agregarCarrito } = useContext(CarritoContext);
+
   const { ocultarEnlaces } = useContext(useEnlacesContext);
 
   useEffect(() => {
@@ -270,8 +272,6 @@ const Productos = ({ match, history }) => {
   const verProducto = (categoria, producto) => {
     history.push(`/productos-servicios/productos/${categoria}/${producto}`);
   };
-
-  const { carritoArray, setCarritoArray } = useContext(CarritoContext);
 
   return (
     <>
@@ -294,9 +294,7 @@ const Productos = ({ match, history }) => {
                       <p>$ {product.precio}</p>
                       <p
                         className="carrito"
-                        onClick={() =>
-                          setCarritoArray([...carritoArray, product])
-                        }
+                        onClick={() => agregarCarrito(product)}
                       >
                         Añadir al Carrito
                       </p>

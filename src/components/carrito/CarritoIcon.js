@@ -17,11 +17,11 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 export default function CarritoIcon({ handleOpen }) {
-  const { carritoArray } = React.useContext(CarritoContext);
+  const { carritoUsuario } = React.useContext(CarritoContext);
 
   return (
     <IconButton aria-label="cart" onClick={handleOpen}>
-      <StyledBadge badgeContent={carritoArray.length} color="secondary">
+      <StyledBadge badgeContent={carritoUsuario?.length} color="secondary">
         <ShoppingCartIcon style={{ color: "#3a1414" }} />
       </StyledBadge>
     </IconButton>
