@@ -77,6 +77,7 @@ const Contenedor = Styled.div`
                         background-color:#771D12;
                         border: 1px solid #771D12;
                         color: #fff;
+                        cursor: pointer;
                     }
                 }
                 

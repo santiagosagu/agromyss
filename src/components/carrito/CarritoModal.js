@@ -5,6 +5,7 @@ import Modal from "@mui/material/Modal";
 import styled from "@emotion/styled";
 import { CarritoContext } from "../../context/carritoContext/CarritoContext";
 import CloseIcon from "@mui/icons-material/Close";
+import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 
 const style = {
   position: "absolute",
@@ -61,10 +62,8 @@ const Card = styled.div`
 `;
 
 export default function CarritoModal({ open, handleClose }) {
-  const { carritoArray, eliminarProductoCarrito, carritoUsuario } =
+  const { eliminarProductoCarrito, carritoUsuario } =
     useContext(CarritoContext);
-
-  console.log(carritoUsuario);
 
   return (
     <div>
@@ -103,10 +102,36 @@ export default function CarritoModal({ open, handleClose }) {
             ))}
           </div>
 
-          {carritoArray?.length === 0 && (
-            <h2 style={{ textAlign: "center", marginTop: "2rem" }}>
-              Aun no has agregado productos
-            </h2>
+          {carritoUsuario?.length === 0 && (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "80%",
+              }}
+            >
+              <h2
+                style={{
+                  textAlign: "center",
+                  marginTop: "2rem",
+                  color: "rgba(0, 0, 0, 0.26)",
+                }}
+              >
+                Aun no has agregado productos
+              </h2>
+              <div>
+                <RemoveShoppingCartIcon
+                  color="disabled"
+                  style={{
+                    textAlign: "center",
+                    fontWeight: "bold",
+                    fontSize: "8rem",
+                  }}
+                />
+              </div>
+            </div>
           )}
         </Box>
       </Modal>

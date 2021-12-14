@@ -245,8 +245,6 @@ const Header = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  console.log(isAdmin);
-
   return (
     <Contenedor>
       {idioma === "español" && (

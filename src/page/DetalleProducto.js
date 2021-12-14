@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "../components/Header";
 import Styled from "@emotion/styled";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import { CarritoContext } from "../context/carritoContext/CarritoContext";
+import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
 
 const productos = [
   {
@@ -157,6 +159,7 @@ const Contenedor = Styled.div`
                         background-color:#771D12;
                         border: 1px solid #771D12;
                         color: #fff;
+                        cursor: pointer;
                     }
                 }
             }
@@ -206,6 +209,10 @@ const DetalleProducto = ({ match }) => {
   //state que guarda el producto a mostrar
   const [productoActual, setProductoActual] = useState({});
 
+  const { agregarCarrito } = useContext(CarritoContext);
+
+  const { ocultarEnlaces } = useContext(useEnlacesContext);
+
   useEffect(() => {
     if (productos) {
       const resultado = productos.filter(
@@ -231,7 +238,7 @@ const DetalleProducto = ({ match }) => {
       <Header />
 
       {productoActual.length > 0 && (
-        <>
+        <div onMouseOver={ocultarEnlaces}>
           <div className="primera-sesion">
             <div className="imagen">
               <Carousel
@@ -268,8 +275,13 @@ const DetalleProducto = ({ match }) => {
               <hr />
               <h4>{productoActual[0].descripcion}</h4>
               <div className="precio-carrito">
-                <p>${productoActual[0].precio}</p>
-                <p className="carrito">Añadir al Carrito</p>
+                <p>$ {productoActual[0].precio}</p>
+                <p
+                  className="carrito"
+                  onClick={() => agregarCarrito(productoActual[0])}
+                >
+                  Añadir al Carrito
+                </p>
               </div>
             </div>
           </div>
@@ -317,7 +329,7 @@ const DetalleProducto = ({ match }) => {
               </div>
             </div>
           </div>
-        </>
+        </div>
       )}
     </Contenedor>
   );

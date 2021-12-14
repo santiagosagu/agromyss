@@ -7,9 +7,9 @@ import imagenVision from "../imagenes/imagen-vision.png";
 import imagenPrincipios from "../imagenes/imagen-principios.png";
 import imagenValores from "../imagenes/imagen-valores.png";
 import { Link } from "react-router-dom";
+import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
 
 const Contenido = Styled.div`
-    
     @media(min-width: 1200px){
         margin-top: 8%;
 
@@ -21,78 +21,60 @@ const Contenido = Styled.div`
         margin-top: 2rem;
     }
 
-    h5{
-        margin: 4rem 2rem 1rem 2rem;
-        font-size: 1rem;
+    a{
+      margin-left: 1rem;
+      text-decoration: none;
+      color: #000;
 
-        @media(min-width: 768px){
-            font-size: 1.2rem;
-        }
-        
-        a{
-            text-decoration: none;
-            color: #000;
-
-            :hover{
-                color: #8b9022;
-            }
-        }
     }
 
     .contenido{
-        
+
+        margin: 4rem 1rem;
 
         @media(min-width: 1200px){
-            margin: 2rem 2rem;
-            display: grid;
-            grid-template-columns: 350px 350px 270px 270px;
-            grid-gap: 1rem;
+            width: 70%;
+            margin: 4rem auto;
         }
 
         .card{
-            margin: 1rem;
-            padding: 1rem;
-            border: none;
 
+          margin-bottom: 2rem;
+          border: none;
+
+          img{
+            width:4rem;
+            margin-bottom: 2rem;
+            
             @media(min-width: 1200px){
-                border: 1px solid #8b9022;
-                margin: 0;
-            }  
-
-            h2{
-                @media(min-width: 1200px){
-                    text-align: center;
-                }
+              width: 8rem;
             }
+          }
 
-            div{
-                width: 100px;
+          p{
+            font-size: 1.3rem;
+          }
 
-                @media(min-width: 1200px){
-                    width: 70px;
-                    margin: 0 auto;
-                }  
-
-            }
-
-            img{
-                width: 100%;
-                margin-bottom: 1rem;
-            }
+          li{
+            font-size: 1.3rem;
+          }
         }
 
     }
+
 `;
 
 const Corporativo = () => {
   /* context para el idioma */
   const { idioma } = useContext(idiomaContext);
 
+  const { ocultarEnlaces } = useContext(useEnlacesContext);
+
   return (
     <Contenido>
+      <Header />
       {idioma === "español" && (
-        <>
-          <Header />
+        <div onMouseOver={ocultarEnlaces}>
           <h1>Filosofia, Principios y Valores</h1>
           <h5>
             <Link to="/corporativo/video-corporativo">Ver Nuestro video</Link>
@@ -149,7 +131,7 @@ const Corporativo = () => {
               <li>Liderazgo</li>
             </div>
           </div>
-        </>
+        </div>
       )}
 
       {idioma === "ingles" && (
