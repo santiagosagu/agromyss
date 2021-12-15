@@ -9,6 +9,7 @@ import Sustentabilidad from "./page/Sustentabilidad";
 import VideoCorporativoPagina from "./page/VideoCorporativoPagina";
 import Productos from "./components/Productos/Productos";
 import Admin from "./page/Admin";
+import Galeria from "./page/Galeria";
 
 const RouterUser = () => {
   return (
@@ -32,6 +33,8 @@ const RouterUser = () => {
           path="/sustentabilidad/:item"
           component={Sustentabilidad}
         />
+
+        <Route exact path="/galeria" component={Galeria} />
 
         <Route exact path="/admin" component={Admin} />
 

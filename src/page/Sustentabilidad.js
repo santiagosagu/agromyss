@@ -5,7 +5,8 @@ import imagenPrincipal from "../imagenes/imagen-principal-sustentabilidad.jpg";
 import Header from "../components/Header";
 import SustentabilidadEspañol from "../modules/sustentabilidad/español";
 import SustentabilidadIngles from "../modules/sustentabilidad/ingles";
-import { animateScroll as scroll } from "react-scroll";
+import { animateScroll as scroll, scroller } from "react-scroll";
+
 import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
 
 const Contenedor = Styled.div`
@@ -82,7 +83,14 @@ const Sustentabilidad = ({ match }) => {
   /* context para el idioma */
   const { idioma } = useContext(idiomaContext);
 
-  const [userScroll, setUserScroll] = useState(0);
+  const [section, setSection] = useState("");
+
+  const [scrollType] = useState({
+    duration: 500,
+    delay: 50,
+    smooth: true, // linear “easeInQuint” “easeOutCubic”
+    offset: window.innerWidth > 1000 ? -200 : -100,
+  });
 
   const { ocultarEnlaces } = useContext(useEnlacesContext);
 
@@ -90,62 +98,61 @@ const Sustentabilidad = ({ match }) => {
   const width = window.innerWidth;
 
   useEffect(() => {
+    if (!url) {
+      setSection("inicio");
+
+      scroll.scrollTo();
+    }
     if (idioma === "español") {
-      if (!url) {
-        setUserScroll(0);
-      }
       if (url === "trabajando-con-agricultores") {
-        setUserScroll(width > 1000 ? 600 : 1200);
+        setSection("trabajando con agricultores");
       }
       if (url === "buscando-el-impacto-emprearial-con-produccion-sostenible") {
-        setUserScroll(width > 1000 ? 1850 : 4500);
+        setSection("buscando el impacto empresarial");
       }
       if (url === "impulsando-la-mejora-agricola") {
-        setUserScroll(width > 1000 ? 2250 : 5480);
+        setSection("impulsando la mejora agricola");
       }
       if (url === "modelo-empresarial-inclusivo") {
-        setUserScroll(width > 1000 ? 3000 : 7500);
+        setSection("modelo empresarial inclusivo");
       }
       if (url === "trazabilidad") {
-        setUserScroll(width > 1000 ? 3540 : 8830);
+        setSection("trazabilidad");
       }
       if (url === "cadena-de-suministro-del-cacao") {
-        setUserScroll(width > 1000 ? 3800 : 9350);
+        setSection("cadena de suministro del cacao");
       }
       if (url === "sostenibilidad-del-cacao") {
-        setUserScroll(width > 1000 ? 4170 : 10000);
+        setSection("sostenibilidad del cacao");
       }
     }
 
     if (idioma === "ingles") {
-      if (!url) {
-        setUserScroll(0);
-      }
       if (url === "trabajando-con-agricultores") {
-        setUserScroll(width > 1000 ? 600 : 1200);
+        setSection("working with farmers");
       }
       if (url === "buscando-el-impacto-emprearial-con-produccion-sostenible") {
-        setUserScroll(width > 1000 ? 1700 : 4100);
+        setSection("looking for the business");
       }
       if (url === "impulsando-la-mejora-agricola") {
-        setUserScroll(width > 1000 ? 2100 : 4950);
+        setSection("promoting agricultural improvement");
       }
       if (url === "modelo-empresarial-inclusivo") {
-        setUserScroll(width > 1000 ? 2800 : 6800);
+        setSection("inclusive business model");
       }
       if (url === "trazabilidad") {
-        setUserScroll(width > 1000 ? 3300 : 8000);
+        setSection("traceability");
       }
       if (url === "cadena-de-suministro-del-cacao") {
-        setUserScroll(width > 1000 ? 3500 : 8500);
+        setSection("cocoa supply chain");
       }
       if (url === "sostenibilidad-del-cacao") {
-        setUserScroll(width > 1000 ? 3800 : 9000);
+        setSection("cocoa sustainability");
       }
     }
   }, [url, width, idioma]);
 
-  scroll.scrollTo(userScroll);
+  scroller.scrollTo(section, scrollType);
 
   return (
     <Contenedor>

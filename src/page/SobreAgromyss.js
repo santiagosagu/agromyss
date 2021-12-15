@@ -5,7 +5,7 @@ import imagenPrincipal from "../imagenes/imagen-principal-sobre-agromyss.jpg";
 import Header from "../components/Header";
 import SobreAgromyssEspañol from "../modules/sobreAgromyss/español";
 import SobreAgromyssIngles from "../modules/sobreAgromyss/ingles";
-import { animateScroll as scroll } from "react-scroll";
+import { animateScroll as scroll, scroller } from "react-scroll";
 import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
 
 const Contenedor = Styled.div`
@@ -40,7 +40,15 @@ const Contenedor = Styled.div`
 const SobreAgromyss = ({ match }) => {
   /* context para el idioma */
   const { idioma } = useContext(idiomaContext);
-  const [userScroll, setUserScroll] = useState(0);
+
+  const [section, setSection] = useState("");
+
+  const [scrollType] = useState({
+    duration: 500,
+    delay: 50,
+    smooth: true, // linear “easeInQuint” “easeOutCubic”
+    offset: window.innerWidth > 1000 ? -200 : -100,
+  });
 
   const { ocultarEnlaces } = useContext(useEnlacesContext);
 
@@ -48,60 +56,57 @@ const SobreAgromyss = ({ match }) => {
   const width = window.innerWidth;
 
   useEffect(() => {
-    if (idioma === "español") {
-      if (!url) {
-        setUserScroll(0);
-      }
+    if (!url) {
+      setSection("inicio");
 
+      scroll.scrollTo();
+    }
+    if (idioma === "español") {
       if (url === "responsabilidad-social-y-ambiental") {
-        setUserScroll(width > 1000 ? 600 : 1100);
+        setSection("responsabilidad social y ambiental");
       }
 
       if (url === "codigo-de-conducta-del-proveedor") {
-        setUserScroll(width > 1000 ? 800 : 1700);
+        setSection("codigo de conducta del proveedor");
       }
 
       if (url === "declaracion-de-esclavitud-moderna") {
-        setUserScroll(width > 1000 ? 1150 : 2550);
+        setSection("declaracion de esclavitud moderna");
       }
 
       if (url === "politica-ambiental-y-social") {
-        setUserScroll(width > 1000 ? 1300 : 3040);
+        setSection("politica ambiental y social");
       }
 
       if (url === "politica-de-inquietudes-eticas") {
-        setUserScroll(width > 1000 ? 1300 : 3900);
+        setSection("politica de inquietudes eticas");
       }
     }
 
     if (idioma === "ingles") {
-      if (!url) {
-        setUserScroll(0);
-      }
-
       if (url === "responsabilidad-social-y-ambiental") {
-        setUserScroll(width > 1000 ? 600 : 1100);
+        setSection("social and environmental");
       }
 
       if (url === "codigo-de-conducta-del-proveedor") {
-        setUserScroll(width > 1000 ? 800 : 1700);
+        setSection("supplier code of conduct");
       }
 
       if (url === "declaracion-de-esclavitud-moderna") {
-        setUserScroll(width > 1000 ? 1150 : 2550);
+        setSection("modern slavery statement");
       }
 
       if (url === "politica-ambiental-y-social") {
-        setUserScroll(width > 1000 ? 1300 : 3040);
+        setSection("environmental and social policy");
       }
 
       if (url === "politica-de-inquietudes-eticas") {
-        setUserScroll(width > 1000 ? 1300 : 3900);
+        setSection("ethical concerns policy");
       }
     }
   }, [url, width, idioma]);
 
-  scroll.scrollTo(userScroll);
+  scroller.scrollTo(section, scrollType);
 
   return (
     <Contenedor>

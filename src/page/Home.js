@@ -2,73 +2,55 @@ import React, { useContext } from "react";
 import Styled from "@emotion/styled";
 import Header from "../components/Header";
 import idiomaContext from "../context/idioma/idiomaContext";
-import imagen from "../imagenes/campo-banner.jpg";
-import galeria1 from "../imagenes/imagen-galeria-principal.jpg";
-import galeria2 from "../imagenes/imagen-galeria-2.jpg";
-import galeria3 from "../imagenes/imagen-galeria-3.jpg";
-import galeria4 from "../imagenes/imagen-galeria-4.jpg";
-import galeria5 from "../imagenes/imagen-galeria-5.jpg";
-import galeria6 from "../imagenes/imagen-galeria-6.jpg";
-import galeria7 from "../imagenes/imagen-galeria-7.jpg";
-import galeria8 from "../imagenes/imagen-galeria-8.jpg";
 import VideoCorporativo from "../components/VideoCorporativo";
 import iconoIndustria from "../imagenes/icono-industria.svg";
 import iconoServicios from "../imagenes/icono-servicios.svg";
 import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
+import { Link } from "react-router-dom";
 
 const Contenedor = Styled.div`
     .banner{
-        background-image: url(${imagen});
+        background-image: url('/images/contactenos.jpg');
         width: 100%;
-        height: 350px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        color:  #fff;
+        height: 500px;
+        background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
-
-        div{
-            background-color: rgba(0, 0, 0, 0.1);
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            h4{
-                font-size: 1.3rem;
-
-                span{
-                    font-size: 2.7rem;
-                }
-            }
-        }
+        color: #fff;
 
         @media(min-width: 1200px){
           margin-top: 4rem;
-            height: 500px;
-            color: #fff;
-            background-image: url(${imagen});
-            background-position: center center;
-            background-attachment: fixed;
-            div{
-              padding: 0 2rem;
-                width: 100%;
-                height: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                
-                h4{
-                    font-size: 1.7rem;
+        }
+        
+        
+        div{
+          background-color: rgba(0, 0, 0, 0.5);
+          width: 100%;
+          height: 100%;
+          padding: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
 
-                    span{
-                        font-size: 3.1rem;
-                    }
+            @media(min-width: 768px){
+              height: 500px;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                font-size: 2rem;
+            }
+
+            h4{
+              font-size: 1.4rem;
+              font-weight: bold;
+
+              @media(min-width: 768px){
+                  font-size: 2rem
+
                 }
             }
-        }
+        }   
     }
 
     .slogan{
@@ -185,6 +167,12 @@ const Contenedor = Styled.div`
     .titulo-galeria{
         h2{
             text-align: center;
+            cursor: pointer;
+        }
+
+        a{
+          text-decoration: none;
+          color: #000;
         }
 
         hr{
@@ -327,33 +315,59 @@ const Home = () => {
             </div>
 
             <div className="titulo-galeria">
-              <h2>Galeria</h2>
+              <Link to="/galeria">
+                <h2>Galeria</h2>
+              </Link>
               <hr />
             </div>
             <div className="galeria">
               <div className="item-a">
-                <img src={galeria1} alt="imagen-galeria-agromyss" />
+                <img
+                  src="/images/Elegidas santamarta/DSC_8026.JPG"
+                  alt="imagen-galeria-agromyss"
+                />
               </div>
               <div>
-                <img src={galeria2} alt="imagen-galeria-agromyss" />
+                <img
+                  src="/images/Elegidas santamarta/DSC_5540.JPG"
+                  alt="imagen-galeria-agromyss"
+                />
               </div>
               <div className="item-b">
-                <img src={galeria8} alt="imagen-galeria-agromyss" />
+                <img
+                  src="/images/Elegidas santamarta/DSC_8038.JPG"
+                  alt="imagen-galeria-agromyss"
+                />
               </div>
               <div>
-                <img src={galeria4} alt="imagen-galeria-agromyss" />
+                <img
+                  src="/images/Elegidas maceo/IMG-20190328-WA0077.jpg"
+                  alt="imagen-galeria-agromyss"
+                />
               </div>
               <div className="item-c">
-                <img src={galeria5} alt="imagen-galeria-agromyss" />
+                <img
+                  src="/images/Elegidas santamarta/DSC_5560.JPG"
+                  alt="imagen-galeria-agromyss"
+                />
               </div>
               <div>
-                <img src={galeria6} alt="imagen-galeria-agromyss" />
+                <img
+                  src="/images/Elegidas maceo/IMG-20190328-WA0044.jpg"
+                  alt="imagen-galeria-agromyss"
+                />
               </div>
               <div>
-                <img src={galeria7} alt="imagen-galeria-agromyss" />
+                <img
+                  src="/images/Elegidas maceo/IMG-20190328-WA0078.jpg"
+                  alt="imagen-galeria-agromyss"
+                />
               </div>
               <div className="item-d">
-                <img src={galeria3} alt="imagen-galeria-agromyss" />
+                <img
+                  src="/images/Elegidas santamarta/DSC_5526.JPG"
+                  alt="imagen-galeria-agromyss"
+                />
               </div>
             </div>
           </div>
@@ -420,34 +434,60 @@ const Home = () => {
               </div>
             </div>
             <div className="titulo-galeria">
-              <h2>Gallery</h2>
+              <Link to="/galeria">
+                <h2>Gallery</h2>
+              </Link>
               <hr />
             </div>
 
             <div className="galeria">
               <div className="item-a">
-                <img src={galeria1} alt="imagen-galeria-agromyss" />
+                <img
+                  src="/images/Elegidas santamarta/DSC_8026.JPG"
+                  alt="imagen-galeria-agromyss"
+                />
               </div>
               <div>
-                <img src={galeria2} alt="imagen-galeria-agromyss" />
+                <img
+                  src="/images/Elegidas santamarta/DSC_5540.JPG"
+                  alt="imagen-galeria-agromyss"
+                />
               </div>
               <div className="item-b">
-                <img src={galeria8} alt="imagen-galeria-agromyss" />
+                <img
+                  src="/images/Elegidas santamarta/DSC_8038.JPG"
+                  alt="imagen-galeria-agromyss"
+                />
               </div>
               <div>
-                <img src={galeria4} alt="imagen-galeria-agromyss" />
+                <img
+                  src="/images/Elegidas maceo/IMG-20190328-WA0077.jpg"
+                  alt="imagen-galeria-agromyss"
+                />
               </div>
               <div className="item-c">
-                <img src={galeria5} alt="imagen-galeria-agromyss" />
+                <img
+                  src="/images/Elegidas santamarta/DSC_5560.JPG"
+                  alt="imagen-galeria-agromyss"
+                />
               </div>
               <div>
-                <img src={galeria6} alt="imagen-galeria-agromyss" />
+                <img
+                  src="/images/Elegidas maceo/IMG-20190328-WA0044.jpg"
+                  alt="imagen-galeria-agromyss"
+                />
               </div>
               <div>
-                <img src={galeria7} alt="imagen-galeria-agromyss" />
+                <img
+                  src="/images/Elegidas maceo/IMG-20190328-WA0078.jpg"
+                  alt="imagen-galeria-agromyss"
+                />
               </div>
               <div className="item-d">
-                <img src={galeria3} alt="imagen-galeria-agromyss" />
+                <img
+                  src="/images/Elegidas santamarta/DSC_5526.JPG"
+                  alt="imagen-galeria-agromyss"
+                />
               </div>
             </div>
           </div>

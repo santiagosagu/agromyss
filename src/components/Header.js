@@ -520,6 +520,9 @@ const Header = () => {
                     <li>
                       <Link to="/contacto">Contactenos</Link>
                     </li>
+                    <li>
+                      <Link to="/galeria">Galeria</Link>
+                    </li>
                     {isAdmin && (
                       <li>
                         <Link to="/admin">Admin</Link>

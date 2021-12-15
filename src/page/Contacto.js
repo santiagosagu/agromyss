@@ -3,7 +3,8 @@ import idiomaContext from "../context/idioma/idiomaContext";
 import Styled from "@emotion/styled";
 import Header from "../components/Header";
 import FormContacto from "../components/formularios/FormContacto";
-import banner from "../imagenes/imagen-galeria-principal.jpg";
+import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
+// import banner from "../imagenes/imagen-galeria-principal.jpg";
 
 const Contenedor = Styled.div`
     text-align: center;
@@ -29,7 +30,7 @@ const Contenedor = Styled.div`
     }
 
     .banner{
-        background-image: url(${banner});
+        background-image: url("/images/contactenos.JPG");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
@@ -86,6 +87,8 @@ const Contenedor = Styled.div`
 const Contacto = () => {
   const [formulario, setFormulario] = useState("");
 
+  const { ocultarEnlaces } = useContext(useEnlacesContext);
+
   /* context para el idioma */
   const { idioma } = useContext(idiomaContext);
 
@@ -137,7 +140,7 @@ const Contacto = () => {
   return (
     <>
       <Header />
-      <Contenedor>
+      <Contenedor onMouseOver={ocultarEnlaces}>
         {idioma === "español" && (
           <>
             <div className="banner">
