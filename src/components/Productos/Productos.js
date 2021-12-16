@@ -4,6 +4,7 @@ import Styled from "@emotion/styled";
 import Header from "../Header";
 import { CarritoContext } from "../../context/carritoContext/CarritoContext";
 import { useEnlacesContext } from "../../context/enlaces/UseEnlaces";
+import { animateScroll as scroll } from "react-scroll";
 
 const Contenedor = Styled.div`
 
@@ -16,7 +17,7 @@ const Contenedor = Styled.div`
         }
 
         @media(min-width: 768px){
-            margin-top: 8%;
+            margin-top: 12%;
         }
 
         .producto-card{
@@ -257,6 +258,8 @@ const Productos = ({ match, history }) => {
   const { agregarCarrito } = useContext(CarritoContext);
 
   const { ocultarEnlaces } = useContext(useEnlacesContext);
+
+  scroll.scrollTo();
 
   useEffect(() => {
     if (idioma === "español") {

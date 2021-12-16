@@ -12,6 +12,10 @@ const Component = Styled.div`
 
         h4{
             font-weight: bold;
+            @media(min-width: 1200px){
+              font-size: 1.7rem;
+              margin-bottom: 1rem;
+            }
         }
         
 

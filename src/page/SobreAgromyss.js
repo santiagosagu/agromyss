@@ -10,14 +10,12 @@ import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
 
 const Contenedor = Styled.div`
     @media(min-width: 1200px){
-        margin-top: 8%;
+        margin-top: 11%;
 
     }
 
     h1{
         text-align: center;
-        margin: 1rem;
-        margin-top: 2rem;
     }
 
 
@@ -44,8 +42,8 @@ const SobreAgromyss = ({ match }) => {
   const [section, setSection] = useState("");
 
   const [scrollType] = useState({
-    duration: 500,
-    delay: 50,
+    duration: 100,
+    delay: 0,
     smooth: true, // linear “easeInQuint” “easeOutCubic”
     offset: window.innerWidth > 1000 ? -200 : -100,
   });

@@ -4,6 +4,7 @@ import Styled from "@emotion/styled";
 import Header from "../components/Header";
 import FormContacto from "../components/formularios/FormContacto";
 import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
+import { animateScroll as scroll } from "react-scroll";
 // import banner from "../imagenes/imagen-galeria-principal.jpg";
 
 const Contenedor = Styled.div`
@@ -30,7 +31,7 @@ const Contenedor = Styled.div`
     }
 
     .banner{
-        background-image: url("/images/contactenos.JPG");
+        background-image: url("/images/contactenos.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
@@ -88,6 +89,8 @@ const Contacto = () => {
   const [formulario, setFormulario] = useState("");
 
   const { ocultarEnlaces } = useContext(useEnlacesContext);
+
+  scroll.scrollTo();
 
   /* context para el idioma */
   const { idioma } = useContext(idiomaContext);

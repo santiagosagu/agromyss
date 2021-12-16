@@ -7,6 +7,7 @@ import iconoIndustria from "../imagenes/icono-industria.svg";
 import iconoServicios from "../imagenes/icono-servicios.svg";
 import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
 import { Link } from "react-router-dom";
+import { animateScroll as scroll } from "react-scroll";
 
 const Contenedor = Styled.div`
     .banner{
@@ -250,6 +251,8 @@ const Home = () => {
   const { idioma } = useContext(idiomaContext);
 
   const { ocultarEnlaces } = useContext(useEnlacesContext);
+
+  scroll.scrollTo();
 
   return (
     <Contenedor>

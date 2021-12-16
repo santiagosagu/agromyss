@@ -6,12 +6,14 @@ import imagenMision from "../imagenes/imagen-mision.png";
 import imagenVision from "../imagenes/imagen-vision.png";
 import imagenPrincipios from "../imagenes/imagen-principios.png";
 import imagenValores from "../imagenes/imagen-valores.png";
+import SlowMotionVideoIcon from "@mui/icons-material/SlowMotionVideo";
 import { Link } from "react-router-dom";
 import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
+import { animateScroll as scroll } from "react-scroll";
 
 const Contenido = Styled.div`
     @media(min-width: 1200px){
-        margin-top: 8%;
+        margin-top: 12%;
 
     }
 
@@ -22,6 +24,7 @@ const Contenido = Styled.div`
     }
 
     a{
+      margin-top: 2rem;
       margin-left: 1rem;
       text-decoration: none;
       color: #000;
@@ -33,7 +36,7 @@ const Contenido = Styled.div`
         margin: 4rem 1rem;
 
         @media(min-width: 1200px){
-            width: 70%;
+            width: 80%;
             margin: 4rem auto;
         }
 
@@ -41,13 +44,31 @@ const Contenido = Styled.div`
 
           margin-bottom: 2rem;
           border: none;
+          
+          @media(min-width: 1200px){
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            padding: 4rem 0;
+          }
 
-          img{
+          
+
+          .contenido-imagen{
+            width: 100%;
+
+            @media(min-width: 1200px){
+              width: 50%;
+            }
+
+            img{
             width:4rem;
             margin-bottom: 2rem;
+            width: 100%;
             
-            @media(min-width: 1200px){
-              width: 8rem;
+              @media(min-width: 1200px){
+                height: 25rem;
+              }
             }
           }
 
@@ -60,6 +81,32 @@ const Contenido = Styled.div`
           }
         }
 
+        .card-reverse{
+            @media(min-width: 1200px){
+              flex-direction: row-reverse;
+            }
+
+            .contenido-texto{
+            @media(min-width: 1200px){
+              width: 50%;
+              margin-right: 2rem;
+            }
+          }
+          }
+
+          .card-no-reverse{
+            @media(min-width: 1200px){
+              flex-direction: row;
+            }
+
+            .contenido-texto{
+            @media(min-width: 1200px){
+              width: 50%;
+
+              margin-left: 2rem;
+            }
+          }
+          }
     }
 
 `;
@@ -70,6 +117,8 @@ const Corporativo = () => {
 
   const { ocultarEnlaces } = useContext(useEnlacesContext);
 
+  scroll.scrollTo();
+
   return (
     <Contenido>
       <Header />
@@ -77,58 +126,83 @@ const Corporativo = () => {
         <div onMouseOver={ocultarEnlaces}>
           <h1>Filosofia, Principios y Valores</h1>
           <h5>
-            <Link to="/corporativo/video-corporativo">Ver Nuestro video</Link>
+            <Link
+              to="/corporativo/video-corporativo"
+              style={{ display: "flex", alignItems: "center" }}
+            >
+              <SlowMotionVideoIcon /> Ver Nuestro video
+            </Link>
           </h5>
           <div className="contenido">
-            <div className="card">
-              <h2>Nuestra Misión</h2>
-              <div>
-                <img src={imagenMision} alt="" />
+            <div className="card card-reverse">
+              <div className="contenido-imagen">
+                <img
+                  src="/images/filosofia/filosofia nuestra mision.jpg"
+                  alt="escala-de-mejora"
+                />
               </div>
-
-              <p>
-                Cultivar, transformar y comercializar productos sustentables y
-                sostenibles de óptima calidad, fundamentados en el mejoramiento
-                continuo, enmarcado en políticas corporativas que garantizan el
-                bienestar de nuestros colaboradores, la protección al medio
-                ambiente y la rentabilidad económica y social.
-              </p>
+              <div className="contenido-texto">
+                <h2>Nuestra Misión</h2>
+                <p>
+                  Cultivar, transformar y comercializar productos sustentables y
+                  sostenibles de óptima calidad, fundamentados en el
+                  mejoramiento continuo, enmarcado en políticas corporativas que
+                  garantizan el bienestar de nuestros colaboradores, la
+                  protección al medio ambiente y la rentabilidad económica y
+                  social.
+                </p>
+              </div>
             </div>
-            <div className="card">
-              <h2>Nuestra Visión</h2>
-              <div>
-                <img src={imagenVision} alt="" />
+            <div className="card card-no-reverse">
+              <div className="contenido-imagen">
+                <img
+                  src="/images/filosofia/filosofia nuestra vision.JPG"
+                  alt="escala-de-mejora"
+                />
               </div>
-              <p>
-                Ser reconocidos a nivel nacional como una empresa líder en la
-                producción, transformación y exportación de productos y sub
-                productos agrícolas y agroindustriales sostenibles y
-                sustentables, con los más altos estándares de calidad e
-                innovación, para la satisfacción de nuestros clientes y el
-                desarrollo humano integral de colaboradores y comunidades.
-              </p>
+              <div className="contenido-texto">
+                <h2>Nuestra Visión</h2>
+                <p>
+                  Ser reconocidos a nivel nacional como una empresa líder en la
+                  producción, transformación y exportación de productos y sub
+                  productos agrícolas y agroindustriales sostenibles y
+                  sustentables, con los más altos estándares de calidad e
+                  innovación, para la satisfacción de nuestros clientes y el
+                  desarrollo humano integral de colaboradores y comunidades.
+                </p>
+              </div>
             </div>
-            <div className="card">
-              <h2>Principios</h2>
-              <div>
-                <img src={imagenPrincipios} alt="" />
+            <div className="card card-reverse">
+              <div className="contenido-imagen">
+                <img
+                  src="/images/filosofia/filosofia principios.JPG"
+                  alt="escala-de-mejora"
+                />
               </div>
-              <li>Amar a Dios sobre todas las cosas</li>
-              <li>Lealtad</li>
-              <li>Honestidad</li>
-              <li>Respeto</li>
-              <li>Amabilidad</li>
+              <div className="contenido-texto">
+                <h2>Principios</h2>
+                <li>Amar a Dios sobre todas las cosas</li>
+                <li>Lealtad</li>
+                <li>Honestidad</li>
+                <li>Respeto</li>
+                <li>Amabilidad</li>
+              </div>
             </div>
-            <div className="card">
-              <h2>Valores</h2>
-              <div>
-                <img src={imagenValores} alt="" />
+            <div className="card card-no-reverse">
+              <div className="contenido-imagen">
+                <img
+                  src="/images/filosofia/filosofia valores.jpg"
+                  alt="escala-de-mejora"
+                />
               </div>
-              <li>Pasión por el servicio</li>
-              <li>Trabajo en equipo</li>
-              <li>Enfoque al resultado</li>
-              <li>Resiliencia</li>
-              <li>Liderazgo</li>
+              <div className="contenido-texto">
+                <h2>Valores</h2>
+                <li>Pasión por el servicio</li>
+                <li>Trabajo en equipo</li>
+                <li>Enfoque al resultado</li>
+                <li>Resiliencia</li>
+                <li>Liderazgo</li>
+              </div>
             </div>
           </div>
         </div>
