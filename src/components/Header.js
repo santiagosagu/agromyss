@@ -239,6 +239,9 @@ const Header = () => {
     mostrarenlaces,
     mostrarSustentabilidad,
     mostrarSobreAgromyss,
+    mostrarAndOcultarProductos,
+    mostrarAndOcultarSustentabilidad,
+    mostrarAndOcultarSobreAgromyss,
   } = useContext(useEnlacesContext);
 
   const [open, setOpen] = React.useState(false);
@@ -270,11 +273,13 @@ const Header = () => {
                       </Link>{" "}
                     </li>
                     <div className="productos-servicios">
-                      <li onMouseOver={() => mostrarProductos()}>
-                        {" "}
-                        Productos y Servicios{" "}
-                        <i className="fas fa-angle-down"></i>
+                      <li onMouseOver={mostrarProductos}>
+                        Productos y Servicios
                       </li>
+                      <i
+                        className="fas fa-angle-down"
+                        onClick={mostrarAndOcultarProductos}
+                      ></i>
 
                       {verProductosServicios && (
                         <ul>
@@ -427,9 +432,11 @@ const Header = () => {
                     </div>
                     <div className="productos-servicios">
                       <li onMouseOver={mostrarSustentabilidad}>
-                        <Link to="/sustentabilidad">
-                          Sustentabilidad <i className="fas fa-angle-down"></i>
-                        </Link>
+                        <Link to="/sustentabilidad">Sustentabilidad</Link>
+                        <i
+                          className="fas fa-angle-down"
+                          onClick={mostrarAndOcultarSustentabilidad}
+                        ></i>
                       </li>
                       {verSustentabilidad && (
                         <>
@@ -475,14 +482,12 @@ const Header = () => {
                       )}
                     </div>
                     <div className="productos-servicios">
-                      <li onMouseOver={() => mostrarSobreAgromyss()}>
-                        <Link to="/sobre-agromyss">
-                          Sobre Agromyss{" "}
-                          <i
-                            className="fas fa-angle-down"
-                            onMouseOver={() => mostrarSobreAgromyss()}
-                          ></i>
-                        </Link>
+                      <li onMouseOver={mostrarSobreAgromyss}>
+                        <Link to="/sobre-agromyss">Sobre Agromyss</Link>
+                        <i
+                          className="fas fa-angle-down"
+                          onClick={mostrarAndOcultarSobreAgromyss}
+                        ></i>
                       </li>
                       {verSobreAgromyss && (
                         <>
@@ -656,11 +661,13 @@ const Header = () => {
                       </Link>{" "}
                     </li>
                     <div className="productos-servicios">
-                      <li onMouseOver={() => mostrarProductos()}>
-                        {" "}
-                        Products and Services{" "}
-                        <i className="fas fa-angle-down"></i>
+                      <li onMouseOver={mostrarProductos}>
+                        Products and Services
                       </li>
+                      <i
+                        className="fas fa-angle-down"
+                        onClick={mostrarAndOcultarProductos}
+                      ></i>
 
                       {verProductosServicios && (
                         <ul>
@@ -808,9 +815,11 @@ const Header = () => {
 
                     <div className="productos-servicios">
                       <li onMouseOver={mostrarSustentabilidad}>
-                        <Link to="/sustentabilidad">
-                          Sustainability <i className="fas fa-angle-down"></i>
-                        </Link>
+                        <Link to="/sustentabilidad">Sustainability</Link>
+                        <i
+                          className="fas fa-angle-down"
+                          onClick={mostrarAndOcultarSustentabilidad}
+                        ></i>
                       </li>
                       {verSustentabilidad && (
                         <>
@@ -857,13 +866,11 @@ const Header = () => {
                     </div>
                     <div className="productos-servicios">
                       <li onMouseOver={mostrarSobreAgromyss}>
-                        <Link to="/sobre-agromyss">
-                          About Agromyss
-                          <i
-                            className="fas fa-angle-down"
-                            onMouseOver={() => mostrarSobreAgromyss()}
-                          ></i>
-                        </Link>
+                        <Link to="/sobre-agromyss">About Agromyss</Link>
+                        <i
+                          className="fas fa-angle-down"
+                          onClick={mostrarAndOcultarSobreAgromyss}
+                        ></i>
                       </li>
                       {verSobreAgromyss && (
                         <>

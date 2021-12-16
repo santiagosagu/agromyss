@@ -103,6 +103,18 @@ const UseEnlaces = (props) => {
     }
   };
 
+  const mostrarAndOcultarProductos = () => {
+    setVerProductosServicios(!verProductosServicios);
+  };
+
+  const mostrarAndOcultarSustentabilidad = () => {
+    setVersustentabilidad(!verSustentabilidad);
+  };
+
+  const mostrarAndOcultarSobreAgromyss = () => {
+    setVerSobreAgromyss(!verSobreAgromyss);
+  };
+
   const ocultarEnlaces = () => {
     setVerProductosServicios(false);
     setVerIndustria(false);
@@ -126,6 +138,7 @@ const UseEnlaces = (props) => {
         verEnlaces,
         verSustentabilidad,
         verSobreAgromyss,
+
         mostrarProductos,
         mostrarIndustria,
         mostrarServicios,
@@ -136,6 +149,9 @@ const UseEnlaces = (props) => {
         mostrarSustentabilidad,
         mostrarSobreAgromyss,
         ocultarEnlaces,
+        mostrarAndOcultarProductos,
+        mostrarAndOcultarSustentabilidad,
+        mostrarAndOcultarSobreAgromyss,
       }}
     >
       {props.children}
