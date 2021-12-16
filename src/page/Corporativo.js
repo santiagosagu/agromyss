@@ -24,8 +24,6 @@ const Contenido = Styled.div`
     }
 
     a{
-      margin-top: 2rem;
-      margin-left: 1rem;
       text-decoration: none;
       color: #000;
 
