@@ -8,8 +8,10 @@ import iconoServicios from "../imagenes/icono-servicios.svg";
 import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
 import { Link } from "react-router-dom";
 import { animateScroll as scroll } from "react-scroll";
+import Footer from "../components/Footer";
 
-const Contenedor = Styled.div`
+const Contenedor = Styled.div` 
+
     .banner{
         background-image: url('/images/contactenos.jpg');
         width: 100%;
@@ -374,6 +376,7 @@ const Home = () => {
               </div>
             </div>
           </div>
+          <Footer />
         </>
       )}
       {idioma === "ingles" && (
@@ -494,6 +497,8 @@ const Home = () => {
               </div>
             </div>
           </div>
+
+          <Footer />
         </>
       )}
     </Contenedor>

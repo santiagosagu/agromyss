@@ -10,6 +10,7 @@ import SlowMotionVideoIcon from "@mui/icons-material/SlowMotionVideo";
 import { Link } from "react-router-dom";
 import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
 import { animateScroll as scroll } from "react-scroll";
+import Footer from "../components/Footer";
 
 const Contenido = Styled.div`
     @media(min-width: 1200px){
@@ -25,7 +26,7 @@ const Contenido = Styled.div`
 
     a{
       text-decoration: none;
-      color: #000;
+      color: #fff;
 
     }
 
@@ -203,6 +204,8 @@ const Corporativo = () => {
               </div>
             </div>
           </div>
+
+          <Footer />
         </div>
       )}
 

@@ -525,9 +525,9 @@ const Header = () => {
                     <li>
                       <Link to="/contacto">Contactenos</Link>
                     </li>
-                    <li>
+                    {/* <li>
                       <Link to="/galeria">Galeria</Link>
-                    </li>
+                    </li> */}
                     {isAdmin && (
                       <li>
                         <Link to="/admin">Admin</Link>
