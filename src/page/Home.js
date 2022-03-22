@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef, useEffect } from "react";
 import Styled from "@emotion/styled";
 import Header from "../components/Header";
 import idiomaContext from "../context/idioma/idiomaContext";
@@ -248,13 +248,53 @@ const Contenedor = Styled.div`
     }
 `;
 
+// const wompiGlobal = $wompi;
 const Home = () => {
   /* context para el idioma */
   const { idioma } = useContext(idiomaContext);
 
   const { ocultarEnlaces } = useContext(useEnlacesContext);
 
+  // const widget = useRef(null);
+
   scroll.scrollTo();
+
+  const prueba = () => {
+    // var widget = new WidgetCheckout({
+    //   currency: "COP",
+    //   amountInCents: 2490000,
+    //   reference: "AD002901221",
+    //   publicKey: "pub_fENJ3hdTJxdzs3hd35PxDBSMB4f85VrgiY3b6s1",
+    //   redirectUrl: "https://transaction-redirect.wompi.co/check", // Opcional
+    //   taxInCents: {
+    //     // Opcional
+    //     vat: 1900,
+    //     consumption: 800,
+    //   },
+    //   customerData: {
+    //     // Opcional
+    //     email: "lola@gmail.com",
+    //     fullName: "Lola Flores",
+    //     phoneNumber: "3040777777",
+    //     phoneNumberPrefix: "+57",
+    //     legalId: "123456789",
+    //     legalIdType: "CC",
+    //   },
+    //   shippingAddress: {
+    //     // Opcional
+    //     addressLine1: "Calle 123 # 4-5",
+    //     city: "Bogota",
+    //     phoneNumber: "3019444444",
+    //     region: "Cundinamarca",
+    //     country: "CO",
+    //   },
+    // });
+    // widget.open(function (result) {
+    //   var transaction = result.transaction;
+    //   console.log("Transaction ID: ", transaction.id);
+    //   console.log("Transaction object: ", transaction);
+    // });
+  };
 
   return (
     <Contenedor>
@@ -376,6 +416,29 @@ const Home = () => {
               </div>
             </div>
           </div>
+
+          {/* <form action="https://checkout.wompi.co/p/" method="GET">
+            <input
+              type="hidden"
+              name="public-key"
+              value="pub_test_sU0PuSKagjNH0o30MBmDlpVeDsU8yOsw"
+            />
+
+            <input type="hidden" name="currency" value="COP" />
+
+            <input type="hidden" name="amount-in-cents" value="5000000" />
+            <input type="hidden" name="reference" value="id2" />
+            <input
+              type="hidden"
+              name="redirect-url"
+              value="http://localhost:3000"
+            />
+
+            <button>holis</button>
+          </form>
+
+          <button onClick={prueba}>prueba</button> */}
+
           <Footer />
         </>
       )}

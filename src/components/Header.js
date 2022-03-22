@@ -23,7 +23,7 @@ const Contenedor = Styled.div`
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 0.5rem;
+          padding: 0.4rem;
         }
 
         .logo {
@@ -94,7 +94,7 @@ const Contenedor = Styled.div`
 
             .enlaces{
                 z-index: 20;
-                margin: 1rem;
+                margin: 0.5rem;
 
 
                 @media(min-width: 1200px){
@@ -103,7 +103,7 @@ const Contenedor = Styled.div`
                 
                 li{
                     list-style: none;
-                    margin: 1rem;
+                    margin: 0.5rem;
                     cursor: pointer;
                     border-bottom: 1px solid #e1e1e1;
                     z-index: 40;
@@ -274,7 +274,9 @@ const Header = () => {
                     </li>
                     <div className="productos-servicios">
                       <li onMouseOver={mostrarProductos}>
-                        Productos y Servicios
+                        <Link to="/productos-servicios">
+                          Productos y Servicios
+                        </Link>
                       </li>
                       <i
                         className="fas fa-angle-down"

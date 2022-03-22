@@ -7,9 +7,12 @@ import Home from "./page/Home";
 import SobreAgromyss from "./page/SobreAgromyss";
 import Sustentabilidad from "./page/Sustentabilidad";
 import VideoCorporativoPagina from "./page/VideoCorporativoPagina";
-import Productos from "./components/Productos/Productos";
+import ProductosChocolates from "./modules/Productos/ProductosChocolates";
 import Admin from "./page/Admin";
 import Galeria from "./page/Galeria";
+import ProductosServicios from "./page/ProductosServicios";
+import ProductosBombones from "./modules/Productos/ProductosBombones";
+import ProductosSnack from "./modules/Productos/ProductosSnacks";
 
 const RouterUser = () => {
   return (
@@ -27,6 +30,12 @@ const RouterUser = () => {
         <Route exact path="/sobre-agromyss" component={SobreAgromyss} />
         <Route exact path="/sobre-agromyss/:item" component={SobreAgromyss} />
 
+        <Route
+          exact
+          path="/productos-servicios"
+          component={ProductosServicios}
+        />
+
         <Route exact path="/sustentabilidad" component={Sustentabilidad} />
         <Route
           exact
@@ -41,9 +50,22 @@ const RouterUser = () => {
         {/* productos chocolates */}
         <Route
           exact
-          path="/productos-servicios/productos/:producto"
-          component={Productos}
+          path="/productos-servicios/productos/chocolatinas"
+          component={ProductosChocolates}
         />
+
+        <Route
+          exact
+          path="/productos-servicios/productos/bombones"
+          component={ProductosBombones}
+        />
+
+        <Route
+          exact
+          path="/productos-servicios/productos/snacks"
+          component={ProductosSnack}
+        />
+
         <Route
           exact
           path="/productos-servicios/productos/:producto/:detalle"

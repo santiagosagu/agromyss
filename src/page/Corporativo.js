@@ -2,10 +2,6 @@ import React, { useContext } from "react";
 import Styled from "@emotion/styled";
 import Header from "../components/Header";
 import idiomaContext from "../context/idioma/idiomaContext";
-import imagenMision from "../imagenes/imagen-mision.png";
-import imagenVision from "../imagenes/imagen-vision.png";
-import imagenPrincipios from "../imagenes/imagen-principios.png";
-import imagenValores from "../imagenes/imagen-valores.png";
 import SlowMotionVideoIcon from "@mui/icons-material/SlowMotionVideo";
 import { Link } from "react-router-dom";
 import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
@@ -23,12 +19,7 @@ const Contenido = Styled.div`
         margin: 1rem;
         margin-top: 2rem;
     }
-
-    a{
-      text-decoration: none;
-      color: #fff;
-
-    }
+    
 
     .contenido{
 
@@ -124,14 +115,20 @@ const Corporativo = () => {
       {idioma === "español" && (
         <div onMouseOver={ocultarEnlaces}>
           <h1>Filosofia, Principios y Valores</h1>
-          <h5>
-            <Link
-              to="/corporativo/video-corporativo"
-              style={{ display: "flex", alignItems: "center" }}
-            >
-              <SlowMotionVideoIcon /> Ver Nuestro video
-            </Link>
-          </h5>
+          <Link
+            to="/corporativo/video-corporativo"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              textDecoration: "none",
+              color: "#000",
+            }}
+          >
+            <h5>
+              <SlowMotionVideoIcon />
+              Ver Nuestro video
+            </h5>
+          </Link>
           <div className="contenido">
             <div className="card card-reverse">
               <div className="contenido-imagen">
@@ -210,64 +207,95 @@ const Corporativo = () => {
       )}
 
       {idioma === "ingles" && (
-        <>
-          <Header />
+        <div onMouseOver={ocultarEnlaces}>
           <h1>Philosophy, Principles and Values</h1>
-          <h5>
-            <Link to="/corporativo/video-corporativo">See our video</Link>
-          </h5>
+          <Link
+            to="/corporativo/video-corporativo"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              textDecoration: "none",
+              color: "#000",
+            }}
+          >
+            <h5>
+              <SlowMotionVideoIcon /> See our video
+            </h5>
+          </Link>
           <div className="contenido">
-            <div className="card">
-              <h2>Our Mission</h2>
-              <div>
-                <img src={imagenMision} alt="" />
+            <div className="card card-reverse">
+              <div className="contenido-imagen">
+                <img
+                  src="/images/filosofia/filosofia nuestra mision.jpg"
+                  alt="escala-de-mejora"
+                />
               </div>
-
-              <p>
-                Cultivate, transform and trade sustainable products with high
-                quality, based on the constant improvement, framed on corporate
-                policies to ensure the welfare of our partners, the protection
-                of the environment and the economic and social profitability.
-              </p>
+              <div className="contenido-texto">
+                <h2>Our Mission</h2>
+                <p>
+                  Cultivate, transform and trade sustainable products with high
+                  quality, based on the constant improvement, framed on
+                  corporate policies to ensure the welfare of our partners, the
+                  protection of the environment and the economic and social
+                  profitability.
+                </p>
+              </div>
             </div>
-            <div className="card">
-              <h2>Our Vision</h2>
-              <div>
-                <img src={imagenVision} alt="" />
+            <div className="card card-no-reverse">
+              <div className="contenido-imagen">
+                <img
+                  src="/images/filosofia/filosofia nuestra vision.JPG"
+                  alt="escala-de-mejora"
+                />
               </div>
-              <p>
-                To be recognize at national level as a leading Company on the
-                production, transformation and exportation of products,
-                sustainable farming and agro-industry sector by-products with
-                the highest standars of quality and innovation for costumer
-                satisfaction and the comprehensive human development of partners
-                and communities.
-              </p>
+              <div className="contenido-texto">
+                <h2>Our Vision</h2>
+                <p>
+                  To be recognize at national level as a leading Company on the
+                  production, transformation and exportation of products,
+                  sustainable farming and agro-industry sector by-products with
+                  the highest standars of quality and innovation for costumer
+                  satisfaction and the comprehensive human development of
+                  partners and communities.
+                </p>
+              </div>
             </div>
-            <div className="card">
-              <h2>Principles</h2>
-              <div>
-                <img src={imagenPrincipios} alt="" />
+            <div className="card card-reverse">
+              <div className="contenido-imagen">
+                <img
+                  src="/images/filosofia/filosofia principios.JPG"
+                  alt="escala-de-mejora"
+                />
               </div>
-              <li>To love God above all things</li>
-              <li>Loyalty</li>
-              <li>Honesty</li>
-              <li>Respect</li>
-              <li>Kindness</li>
+              <div className="contenido-texto">
+                <h2>Principles</h2>
+                <li>To love God above all things</li>
+                <li>Loyalty</li>
+                <li>Honesty</li>
+                <li>Respect</li>
+                <li>Kindness</li>
+              </div>
             </div>
-            <div className="card">
-              <h2>Values</h2>
-              <div>
-                <img src={imagenValores} alt="" />
+            <div className="card card-no-reverse">
+              <div className="contenido-imagen">
+                <img
+                  src="/images/filosofia/filosofia valores.jpg"
+                  alt="escala-de-mejora"
+                />
               </div>
-              <li>Passion for service</li>
-              <li>Team work</li>
-              <li>Focus on results</li>
-              <li>Resilience</li>
-              <li>Lidership</li>
+              <div className="contenido-texto">
+                <h2>Values</h2>
+                <li>Passion for service</li>
+                <li>Team work</li>
+                <li>Focus on results</li>
+                <li>Resilience</li>
+                <li>Lidership</li>
+              </div>
             </div>
           </div>
-        </>
+
+          <Footer />
+        </div>
       )}
     </Contenido>
   );

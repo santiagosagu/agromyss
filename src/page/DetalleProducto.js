@@ -5,6 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { CarritoContext } from "../context/carritoContext/CarritoContext";
 import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
+import Footer from "../components/Footer";
 
 const productos = [
   {
@@ -331,6 +332,8 @@ const DetalleProducto = ({ match }) => {
           </div>
         </div>
       )}
+
+      <Footer />
     </Contenedor>
   );
 };

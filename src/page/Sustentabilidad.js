@@ -8,6 +8,7 @@ import SustentabilidadIngles from "../modules/sustentabilidad/ingles";
 import { animateScroll as scroll, scroller } from "react-scroll";
 
 import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
+import Footer from "../components/Footer";
 
 const Contenedor = Styled.div`
     @media(min-width: 1200px){
@@ -171,6 +172,8 @@ const Sustentabilidad = ({ match }) => {
           <SustentabilidadIngles />
         )}
       </div>
+
+      <Footer />
     </Contenedor>
   );
 };

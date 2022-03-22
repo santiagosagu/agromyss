@@ -7,6 +7,7 @@ import SobreAgromyssEspañol from "../modules/sobreAgromyss/español";
 import SobreAgromyssIngles from "../modules/sobreAgromyss/ingles";
 import { animateScroll as scroll, scroller } from "react-scroll";
 import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
+import Footer from "../components/Footer";
 
 const Contenedor = Styled.div`
     @media(min-width: 1200px){
@@ -125,6 +126,8 @@ const SobreAgromyss = ({ match }) => {
           <SobreAgromyssIngles />
         )}
       </div>
+
+      <Footer />
     </Contenedor>
   );
 };

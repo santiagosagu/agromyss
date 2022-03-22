@@ -6,10 +6,17 @@ import CarritoState from "./context/carritoContext/CarritoContext";
 import IdiomaState from "./context/idioma/idiomaState";
 import UseEnlaces from "./context/enlaces/UseEnlaces";
 import RouterUser from "./router";
+import { Helmet } from "react-helmet";
 
 function App() {
   return (
     <>
+      <Helmet>
+        <script
+          type="text/javascript"
+          scr="https://checkout.wompi.co/widget.js"
+        ></script>
+      </Helmet>
       <AuthState>
         <IdiomaState>
           <CarritoState>

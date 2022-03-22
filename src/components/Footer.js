@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import Styled from "@emotion/styled";
 import { Link } from "react-router-dom";
+import idiomaContext from "../context/idioma/idiomaContext";
 
 const Contenedor = Styled.div`
  width: 100%;
@@ -12,7 +13,7 @@ const Contenedor = Styled.div`
  @media(min-width: 1200px){
    height: 19rem;
    justify-content: flex-start;
-
+   margin-top: 2rem;
  }
 
  a {
@@ -62,19 +63,33 @@ const Contenedor = Styled.div`
 `;
 
 const Footer = () => {
+  const { idioma } = useContext(idiomaContext);
+
   return (
     <Contenedor>
       <div className="content-grid">
         <div className="section">
           <ul>
             <Link to="/corporativo">
-              <li>Filosofia Principios y Valores</li>
+              {idioma === "español" ? (
+                <li>Filosofia Principios y Valores</li>
+              ) : (
+                <li>Philosophy, Principles and Values</li>
+              )}
             </Link>
             <Link to="/sustentabiidad">
-              <li>Sustentabilidad</li>
+              {idioma === "español" ? (
+                <li>Sustentabilidad</li>
+              ) : (
+                <li>Sustainability</li>
+              )}
             </Link>
             <Link to="/sobre-agromyss">
-              <li>Sobre Agromyss</li>
+              {idioma === "español" ? (
+                <li>Sobre Agromyss</li>
+              ) : (
+                <li>About Agromyss</li>
+              )}
             </Link>
           </ul>
         </div>
@@ -82,7 +97,14 @@ const Footer = () => {
         <div className="section">
           <ul>
             <Link to="/galeria">
-              <li>Galeria</li>
+              {idioma === "español" ? <li>Galeria</li> : <li>Galery</li>}
+            </Link>
+            <Link to="/corporativo/video-corporativo">
+              {idioma === "español" ? (
+                <li>Video Corporativo</li>
+              ) : (
+                <li>corporate video</li>
+              )}
             </Link>
           </ul>
         </div>

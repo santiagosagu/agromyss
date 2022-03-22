@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import Styled from "@emotion/styled";
+import Footer from "../components/Footer";
 
 const Contenedor = Styled.div`
     
@@ -46,6 +47,8 @@ const VideoCorporativoPagina = () => {
           allowfullscreen="true"
         ></iframe>
       </div>
+
+      <Footer />
     </Contenedor>
   );
 };

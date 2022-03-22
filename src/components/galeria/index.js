@@ -8,6 +8,7 @@ const Component = styled.div`
 
   @media (min-width: 1200px) {
     width: 90%;
+    height: 77rem;
     margin: 4rem auto;
   }
 `;
