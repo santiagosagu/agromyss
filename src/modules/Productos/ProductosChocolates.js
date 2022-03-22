@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import idiomaContext from "../../context/idioma/idiomaContext";
 import Styled from "@emotion/styled";
 import Header from "../../components/Header";
@@ -6,6 +6,7 @@ import { CarritoContext } from "../../context/carritoContext/CarritoContext";
 import { useEnlacesContext } from "../../context/enlaces/UseEnlaces";
 import { animateScroll as scroll } from "react-scroll";
 import Footer from "../../components/Footer";
+import { db } from "../../FirebaseConfig";
 
 const Contenedor = Styled.div`
 
@@ -229,6 +230,10 @@ const productosIngles = [
 ];
 
 const ProductosChocolatinas = ({ match, history }) => {
+  const [chocolatinas, setChocolatinas] = useState([]);
+
+  const [todosProductosDB, setTodosProductosDB] = useState([]);
+
   /* hooks para el idioma */
   const { idioma } = useContext(idiomaContext);
 
@@ -242,6 +247,33 @@ const ProductosChocolatinas = ({ match, history }) => {
     history.push(`/productos-servicios/productos/${categoria}/${producto}`);
   };
 
+  useEffect(() => {
+    const guardarDatos = async () => {
+      await db.collection("productos").onSnapshot((doc) => {
+        const resultado = doc.docs.map((item) => {
+          return {
+            id: item.id,
+            ...item.data(),
+          };
+        });
+
+        setTodosProductosDB(resultado);
+      });
+    };
+
+    guardarDatos();
+  }, []);
+
+  useEffect(() => {
+    if (todosProductosDB) {
+      const resultado = todosProductosDB.filter(
+        (item) => item.categoria === "chocolatinas"
+      );
+
+      setChocolatinas(resultado);
+    }
+  }, [todosProductosDB]);
+
   return (
     <>
       <Header />
@@ -251,10 +283,10 @@ const ProductosChocolatinas = ({ match, history }) => {
             <div className="producto">
               <h2>Chocolatinas</h2>
               <div className="producto-card">
-                {productos.map((product) => (
+                {chocolatinas.map((product) => (
                   <div className="producto-card-content">
                     <img
-                      src={product.img[0]}
+                      src={product.imagenes[0]}
                       alt=""
                       onClick={() => verProducto("chocolatinas", product.url)}
                     />

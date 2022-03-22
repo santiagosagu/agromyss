@@ -6,100 +6,7 @@ import { Carousel } from "react-responsive-carousel";
 import { CarritoContext } from "../context/carritoContext/CarritoContext";
 import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
 import Footer from "../components/Footer";
-
-const productos = [
-  {
-    id: 1,
-    nombre: "chocolatinas",
-    url: "chocolatinas",
-    productos: [
-      {
-        id: 1,
-        nombre: "Barra de chocolate amargo - sin agregados",
-        precio: 20000,
-        img: [
-          "https://www.evok.com.co/wp-content/uploads/2019/10/BarrasAmargo4.png",
-          "https://www.evok.com.co/wp-content/uploads/2019/10/BarrasAmargo-7715.png",
-          "https://www.evok.com.co/wp-content/uploads/2019/10/Fondoblanco3-7717.png",
-        ],
-        url: "chocolatina1",
-      },
-      {
-        id: 2,
-        nombre: "Barra de chocolate amargo - sin agregados",
-        descripcion:
-          "Barra de chocolate sin agregados al 100 % de cacao por 90 g.",
-        precio: 30000,
-        img: [
-          "https://www.evok.com.co/wp-content/uploads/2019/10/BarrasAmargo2-7715.png",
-          "https://www.evok.com.co/wp-content/uploads/2019/10/BarrasAmargo-7715.png",
-          "https://www.evok.com.co/wp-content/uploads/2019/10/Fondoblanco3-7717.png",
-        ],
-        url: "chocolatina2",
-      },
-      {
-        id: 3,
-        nombre:
-          "Barra de chocolate - frambuesa - manzanilla - manzana - cacao nibs",
-        precio: 40000,
-        img: [
-          "https://www.evok.com.co/wp-content/uploads/2019/10/Fondoblanco.png",
-        ],
-        url: "chocolatina3",
-      },
-    ],
-  },
-  {
-    id: 2,
-    nombre: "bombones",
-    url: "bombones",
-    productos: [
-      {
-        id: 1,
-        nombre: "bombones1",
-        precio: 20000,
-        url: "bombones1",
-      },
-      {
-        id: 2,
-        nombre: "bombones2",
-        precio: 30000,
-        url: "bombones2",
-      },
-      {
-        id: 3,
-        nombre: "bombones3",
-        precio: 40000,
-        url: "bombones3",
-      },
-    ],
-  },
-  {
-    id: 3,
-    nombre: "snacks",
-    url: "snacks",
-    productos: [
-      {
-        id: 1,
-        nombre: "snacks1",
-        precio: 20000,
-        url: "snacks1",
-      },
-      {
-        id: 2,
-        nombre: "snacks2",
-        precio: 30000,
-        url: "snacks2",
-      },
-      {
-        id: 3,
-        nombre: "snacks3",
-        precio: 40000,
-        url: "snacks3",
-      },
-    ],
-  },
-];
+import { db } from "../FirebaseConfig";
 
 const Contenedor = Styled.div`
     .primera-sesion{
@@ -204,35 +111,42 @@ const Contenedor = Styled.div`
 `;
 
 const DetalleProducto = ({ match }) => {
-  //productos
-  const [productosTodos, setProductosTodos] = useState({});
-
   //state que guarda el producto a mostrar
   const [productoActual, setProductoActual] = useState({});
+
+  //productos
+  const [todosProductosDB, setTodosProductosDB] = useState([]);
 
   const { agregarCarrito } = useContext(CarritoContext);
 
   const { ocultarEnlaces } = useContext(useEnlacesContext);
 
   useEffect(() => {
-    if (productos) {
-      const resultado = productos.filter(
-        (item) => item.url === match.params.producto
-      );
+    const guardarDatos = async () => {
+      await db.collection("productos").onSnapshot((doc) => {
+        const resultado = doc.docs.map((item) => {
+          return {
+            id: item.id,
+            ...item.data(),
+          };
+        });
 
-      setProductosTodos(resultado);
-    }
-  }, [match.params.detalle, match.params.producto]);
+        setTodosProductosDB(resultado);
+      });
+    };
+
+    guardarDatos();
+  }, []);
 
   useEffect(() => {
-    if (productosTodos.length > 0) {
-      const resultado = productosTodos[0].productos.filter(
+    if (todosProductosDB) {
+      const resultado = todosProductosDB.filter(
         (item) => item.url === match.params.detalle
       );
 
       setProductoActual(resultado);
     }
-  }, [productosTodos, match.params.detalle]);
+  }, [match.params.detalle, match.params.producto, todosProductosDB]);
 
   return (
     <Contenedor>
@@ -253,7 +167,7 @@ const DetalleProducto = ({ match }) => {
                 emulateTouch
                 showThumbs={false}
               >
-                {productoActual[0].img.map((image) => (
+                {productoActual[0].imagenes.map((image) => (
                   <div
                     className="imagen"
                     style={{ backgroundImage: `url(${image})` }}
@@ -272,7 +186,7 @@ const DetalleProducto = ({ match }) => {
               </Carousel>
             </div>
             <div className="descripcion">
-              <h2>{productoActual[0].nombre}</h2>
+              <h2>{productoActual[0].nombreProducto}</h2>
               <hr />
               <h4>{productoActual[0].descripcion}</h4>
               <div className="precio-carrito">
@@ -293,11 +207,13 @@ const DetalleProducto = ({ match }) => {
                 <tbody>
                   <tr>
                     <td>Calorías</td>
-                    <td>220</td>
+                    <td>{productoActual[0].infoNutricional[0].calorias}</td>
                   </tr>
                   <tr>
                     <td>Calorías Grasa</td>
-                    <td>120</td>
+                    <td>
+                      {productoActual[0].infoNutricional[0].caloriasGrasa}
+                    </td>
                   </tr>
                   <tr>
                     <td>Grasa Total</td>
