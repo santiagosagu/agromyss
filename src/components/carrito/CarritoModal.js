@@ -86,10 +86,13 @@ export default function CarritoModal({ open, handleClose }) {
             {carritoUsuario?.map((item) => (
               <Card>
                 <div className="content-img">
-                  <img src={item.producto?.img[0]} alt="producto-carrito" />
+                  <img
+                    src={item.producto?.imagenes[0]}
+                    alt="producto-carrito"
+                  />
                 </div>
                 <div className="content-description">
-                  <h4>{item.producto.nombre}</h4>
+                  <h4>{item.producto.nombreProducto}</h4>
                   <h3>$ {item.producto.precio}</h3>
                 </div>
                 <div className="content-close">
