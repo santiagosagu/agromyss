@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 import idiomaContext from "../context/idioma/idiomaContext";
+import PersonPinCircleIcon from "@mui/icons-material/PersonPinCircle";
 
 const Contenedor = Styled.div`
  width: 100%;
@@ -9,9 +10,10 @@ const Contenedor = Styled.div`
  display: flex;
  flex-direction: column;
  justify-content: flex-end;
+ color: #fff;
 
  @media(min-width: 1200px){
-   height: 19rem;
+   height: auto;
    justify-content: flex-start;
    margin-top: 2rem;
  }
@@ -21,44 +23,37 @@ const Contenedor = Styled.div`
    color: #fff;
  }
 
-
- .content-grid {
-    padding-top: 1rem;
-    color: #fff;
-    margin-bottom: 0;
-    font-size: 1.1rem;    
+ .grid-column{
+    width: 100%; 
+    text-align: center;
+    
+    @media(min-width: 768px){
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 1rem;
+      text-align: start;
+    }
     
     @media(min-width: 1200px){
-      width: 100%;
-      display: grid;
-      font-size: 1.3rem;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
+
     }
 
-    .section {
-      margin-bottom: 3rem;
-
-      @media(min-width: 1200px){
-        margin-bottom: 0;
+    .redes-sociales{
+      @media(min-width: 768px){
+        width: 30rem;
       }
-      
-      li{
-        list-style: none;
-        margin: 1.3rem 0;
-
-        @media(min-width: 1200px){
-          margin: 2rem 0;
-        }
-
-        
-      }
-      
     }
 
+    .ubicacion {
+      text-align: center;
+
+      @media(min-width: 768px){
+        text-align: start;
+      }
+    }
     
  }
-
-
 
 `;
 
@@ -66,76 +61,59 @@ const Footer = () => {
   const { idioma } = useContext(idiomaContext);
 
   return (
-    <Contenedor>
-      <div className="content-grid">
-        <div className="section">
-          <ul>
-            <Link to="/corporativo">
-              {idioma === "español" ? (
-                <li>Filosofia Principios y Valores</li>
-              ) : (
-                <li>Philosophy, Principles and Values</li>
-              )}
-            </Link>
-            <Link to="/sustentabiidad">
-              {idioma === "español" ? (
-                <li>Sustentabilidad</li>
-              ) : (
-                <li>Sustainability</li>
-              )}
-            </Link>
-            <Link to="/sobre-agromyss">
-              {idioma === "español" ? (
-                <li>Sobre Agromyss</li>
-              ) : (
-                <li>About Agromyss</li>
-              )}
-            </Link>
-          </ul>
+    <Contenedor className="px-4">
+      <div className="grid-column">
+        <div className="mt-12">
+          <h3>CONTÁCTENOS</h3>
+          <p>Telefono fijo:</p>
+          <p>Whatsapp:</p>
+          <p>agromyssas@gmail.com</p>
         </div>
-
-        <div className="section">
-          <ul>
-            <Link to="/galeria">
-              {idioma === "español" ? <li>Galeria</li> : <li>Galery</li>}
-            </Link>
-            <Link to="/corporativo/video-corporativo">
-              {idioma === "español" ? (
-                <li>Video Corporativo</li>
-              ) : (
-                <li>corporate video</li>
-              )}
-            </Link>
-          </ul>
+        <div className="mt-12 redes-sociales">
+          <h3 className="text-center">SÍGUENOS EN REDES SOCIALES</h3>
+          <div className="flex justify-between px-11">
+            <div>
+              <img
+                src="/images/redes/facebook.png"
+                alt="icono-facebook"
+                width={"80rem"}
+                className="text-center"
+              />
+              <p className="text-slate-50">Agromyss</p>
+            </div>
+            <div>
+              <img
+                src="/images/redes/instagram.png"
+                alt="icono-instagram"
+                width={"80rem"}
+                className="ml-4"
+              />
+              <p>waikao.chocolates</p>
+            </div>
+          </div>
         </div>
-        <div className="section">
-          <ul>
-            <li style={{ display: "flex", alignItems: "center" }}>
-              <img
-                src="/images/redes/facebook-3.svg"
-                alt="imagen facebook"
-                style={{ width: "2rem", margin: 0 }}
-              />
-              <p style={{ margin: "0 1rem" }}> @AGROMYSS </p>
-            </li>
-            <li style={{ display: "flex", alignItems: "center" }}>
-              <img
-                src="/images/redes/instagram-2-1.svg"
-                alt="imagen facebook"
-                style={{ width: "2rem", margin: 0 }}
-              />
-              <p style={{ margin: "0 1rem" }}> @AGROMYSS </p>
-            </li>
-            <li style={{ display: "flex", alignItems: "center" }}>
-              <img
-                src="/images/redes/twitter-4.svg"
-                alt="imagen facebook"
-                style={{ width: "2rem", margin: 0 }}
-              />
-              <p style={{ margin: "0 1rem" }}> @AGROMYSS </p>
-            </li>
-          </ul>
+        <div className="mt-12 xl:ml-3 2xl:ml-24">
+          <h3>UBICACIÓN</h3>
+          <div className="mt-10">
+            <p>Maceo Antioquia</p>
+            <a
+              href="https://www.google.com/maps/place/6%C2%B032'22.0%22N+74%C2%B037'49.0%22W/@6.5394497,-74.6324665,753m/data=!3m2!1e3!4b1!4m5!3m4!1s0x0:0x61cb12f78341fcc8!8m2!3d6.5394444!4d-74.6302778?hl=es"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <PersonPinCircleIcon className="mb-1" /> 6°32'22''N74°37'49''w
+            </a>
+          </div>
         </div>
+        <div className="flex justify-center">
+          <img src="/images/logo.png" alt="" />
+        </div>
+      </div>
+      <div className="mt-6">
+        <p className="text-center">
+          Medellin - Colombia copyright&copy; {new Date().getFullYear()}{" "}
+          Agromyss SAS Todos los derechos reservados
+        </p>
       </div>
     </Contenedor>
   );
