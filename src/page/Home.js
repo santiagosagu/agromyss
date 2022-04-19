@@ -334,7 +334,7 @@ const Home = () => {
 
             <div className="sesion-productos-servicios">
               <div className="cards">
-                <div className="card-icono">
+                <div className="card-icono flex justify-center">
                   <img src={iconoIndustria} alt="" />
                 </div>
                 <div className="card-contenido">
@@ -346,7 +346,7 @@ const Home = () => {
                 </div>
               </div>
               <div className="cards">
-                <div className="card-icono">
+                <div className="card-icono flex justify-center">
                   <img src={iconoServicios} alt="" />
                 </div>
                 <div className="card-contenido">

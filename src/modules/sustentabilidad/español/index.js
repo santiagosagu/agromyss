@@ -54,6 +54,7 @@ const SustentabilidadEspañol = () => {
           <img
             src="/images/sustentabilidad/sustentabilidad trabajo con agricultores.jpg"
             alt="escala-de-mejora"
+            style={{ width: "auto", height: "auto" }}
           />
 
           <p>
@@ -126,6 +127,7 @@ const SustentabilidadEspañol = () => {
           <img
             src="/images/sustentabilidad/sustentabilidad buscando el impacto empresarial.jpg"
             alt="escala-de-mejora"
+            style={{ width: "auto", height: "auto" }}
           />
 
           <p>
@@ -155,6 +157,7 @@ const SustentabilidadEspañol = () => {
           <img
             src="/images/sustentabilidad/sustentabilidad impulsando mejora agricola.jpg"
             alt="escala-de-mejora"
+            style={{ width: "auto", height: "auto" }}
           />
 
           <p>
@@ -229,6 +232,7 @@ const SustentabilidadEspañol = () => {
           <img
             src="/images/sustentabilidad/sustentabilidad modelo empresarial inclusivo.JPG"
             alt="escala-de-mejora"
+            style={{ width: "auto", height: "auto" }}
           />
 
           <p>
@@ -268,6 +272,7 @@ const SustentabilidadEspañol = () => {
           <img
             src="/images/sustentabilidad/trazabilidad.JPG"
             alt="escala-de-mejora"
+            style={{ width: "auto", height: "auto" }}
           />
 
           <p>
@@ -289,6 +294,7 @@ const SustentabilidadEspañol = () => {
           <img
             src="/images/sustentabilidad/sustentabilidad cadeja de suministro de cacao.jpg"
             alt="escala-de-mejora"
+            style={{ width: "auto", height: "auto" }}
           />
 
           <p>
@@ -314,6 +320,7 @@ const SustentabilidadEspañol = () => {
           <img
             src="/images/sustentabilidad/sustentabilidad sostenibilidad del cacao.jpg"
             alt="escala-de-mejora"
+            style={{ width: "auto", height: "auto" }}
           />
 
           <p>

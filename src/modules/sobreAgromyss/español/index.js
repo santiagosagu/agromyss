@@ -52,6 +52,7 @@ const SobreAgromyssEspañol = () => {
           <img
             src="/images/sobreagromyss/sobre agromyss2.jpg"
             alt="escala-de-mejora"
+            style={{ width: "auto", height: "auto" }}
           />
 
           <p>
@@ -74,6 +75,7 @@ const SobreAgromyssEspañol = () => {
           <img
             src="/images/sobreagromyss/sobre agromyss 3.jpg"
             alt="escala-de-mejora"
+            style={{ width: "auto", height: "auto" }}
           />
 
           <p>
@@ -99,6 +101,7 @@ const SobreAgromyssEspañol = () => {
           <img
             src="/images/sobreagromyss/sobre agromyss 4.jpg"
             alt="escala-de-mejora"
+            style={{ width: "auto", height: "auto" }}
           />
 
           <p>
@@ -119,6 +122,10 @@ const SobreAgromyssEspañol = () => {
           <img
             src="/images/sobreagromyss/sobre agromyss politica ambiental y social.jpg"
             alt="escala-de-mejora"
+            style={{
+              width: "auto",
+              height: "auto",
+            }}
           />
 
           <p>
@@ -141,6 +148,7 @@ const SobreAgromyssEspañol = () => {
           <img
             src="/images/sobreagromyss/sobre agromyss politicas de inquietudes eticas.JPG"
             alt="escala-de-mejora"
+            style={{ width: "auto", height: "auto" }}
           />
 
           <p>
