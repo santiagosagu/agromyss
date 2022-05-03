@@ -92,6 +92,7 @@ export default function CarritoModal({ open, handleClose }) {
     aumentarCantidad,
     eliminarProductoCarrito,
     disminuirCantidad,
+    totalPagar,
   } = useContext(CarritoContext);
 
   return (
@@ -111,9 +112,12 @@ export default function CarritoModal({ open, handleClose }) {
           >
             Carrito de Compras
           </Typography>
-          <Link to="/mi-carro" className="text-white no-underline">
-            <div className=" w-44 bg-slate-400 text-white py-7 mx-4 px-4 hover:bg-slate-700">
-              Completar Orden
+          <Link to="/mi-carrito" className="text-white no-underline">
+            <div className="flex justify-center md:justify-start">
+              <div className="w-52 bg-slate-400 text-white py-7 mx-4 px-4 hover:bg-slate-700">
+                <p>Total Pagar: $ {totalPagar}</p>
+                Completar Orden
+              </div>
             </div>
           </Link>
           <div id="modal-modal-description" sx={{ mt: 2 }}>

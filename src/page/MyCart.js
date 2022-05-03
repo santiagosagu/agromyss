@@ -22,23 +22,47 @@ const Contenedor = styled.div`
     }
 
     .content-cart {
-      height: 40rem;
+      height: 25rem;
       overflow-y: scroll;
       width: 100%;
 
+      @media (min-width: 1000px) {
+        height: 40rem;
+      }
+
       .card-page {
+        display: flex;
+        justify-content: space-between;
         width: 100%;
         margin-top: 2rem;
         margin-bottom: 2rem;
-        display: flex;
-        justify-content: space-between;
         align-items: center;
         border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 1rem;
 
         .product {
           display: flex;
           align-items: center;
           width: 50%;
+
+          .content-description {
+            display: none;
+
+            @media (min-width: 1000px) {
+              display: flex;
+            }
+          }
+        }
+        .precio {
+          width: 10rem;
+        }
+
+        .editar-cantidad {
+          width: 10rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
         }
 
         .content-img {
@@ -47,7 +71,6 @@ const Contenedor = styled.div`
           }
 
           img {
-            margin-top: 3rem;
             width: 100%;
           }
         }
@@ -67,9 +90,23 @@ export const MyCart = () => {
 
   const { ocultarEnlaces } = useContext(useEnlacesContext);
 
-  // if (carritoUsuario.length === 0) {
-  //   return <h2>Aun no tienes productos en el carrito</h2>;
-  // }
+  if (carritoUsuario.length === 0) {
+    return (
+      <Contenedor>
+        <Header />
+        <div className="md:mt-36 text-center flex flex-col justify-center">
+          <h2>Aun no tienes productos en el carrito</h2>
+          <div className="mx-auto">
+            <img
+              src="https://www.breathearomatherapy.com/assets/images/global/no-product.png"
+              alt="imagen-no-items"
+            />
+          </div>
+        </div>
+        <Footer />
+      </Contenedor>
+    );
+  }
 
   return (
     <Contenedor>
@@ -89,22 +126,22 @@ export const MyCart = () => {
                   />
                 </div>
                 <div className="content-description">
-                  <h4>{item.producto.nombreProducto}</h4>
+                  <h3>{item.producto.nombreProducto}</h3>
                 </div>
               </div>
-              <div>
+              <div className="precio">
                 <h3>$ {item.producto.precioSumado}</h3>
               </div>
-              <div>
+              <div className="editar-cantidad">
                 <button
-                  className="bg-slate-700 text-white px-4 py-2 rounded-full"
+                  className="bg-slate-700 text-white w-16 md:px-4 py-2 rounded-full"
                   onClick={() => aumentarCantidad(item.id)}
                 >
                   <ArrowCircleUpIcon />
                 </button>
                 <h4 className="text-center mt-3">{item.producto.cantidad}</h4>
                 <button
-                  className="bg-red-700 text-white px-4 py-2 rounded-full"
+                  className="bg-red-700 text-white w-16 md:px-4 py-2 rounded-full"
                   onClick={() => disminuirCantidad(item.id)}
                 >
                   <ArrowCircleDownIcon />
@@ -120,11 +157,13 @@ export const MyCart = () => {
           ))}
         </div>
       </div>
-      <div className="flex justify-end mr-28 h-20">
-        <div className="w-56 bg-slate-700 pt-7 px-3 text-white">
+      <div className="flex justify-center md:justify-end md:mr-28 h-auto mb-8">
+        <div className="w-56 bg-slate-700 pt-7 px-3 text-white my-7 ">
+          <p>TOTAL PRODUCTOS: {carritoUsuario.length}</p>
           <p>TOTAL PAGAR: $ {totalPagar}</p>
         </div>
       </div>
+
       <Footer />
     </Contenedor>
   );

@@ -73,7 +73,7 @@ const RouterUser = () => {
           component={DetalleProducto}
         />
 
-        <Route exact path="/mi-carro" component={MyCart} />
+        <Route exact path="/mi-carrito" component={MyCart} />
       </Switch>
     </Router>
   );
