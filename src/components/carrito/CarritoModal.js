@@ -3,9 +3,12 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import styled from "@emotion/styled";
-import { CarritoContext } from "../../context/carritoContext/CarritoContext";
 import CloseIcon from "@mui/icons-material/Close";
 import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
+import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
+import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
+import { CarritoContext } from "../../context/carritoContext/CarritoContext";
+import { Link } from "react-router-dom";
 
 const style = {
   position: "absolute",
@@ -23,36 +26,58 @@ const style = {
 };
 
 const Card = styled.div`
-  display: grid;
-  grid-template-columns: 40% 40% 20%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid #000;
   padding: 0;
 
-  @media (min-width: 1000px) {
-    grid-template-columns: 23% 43% 33%;
-  }
-
-  .content-img {
-    width: 200px;
-    @media (min-width: 1000px) {
-      width: 200px;
-    }
-
-    img {
-      margin-top: 3rem;
-      width: 100%;
-    }
-  }
-
-  .content-description {
+  .content-img-description {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 2rem;
-    padding: 1rem;
+    @media (min-width: 1000px) {
+      width: 28rem;
+    }
 
-    h3 {
-      margin-top: 1rem;
+    .content-img {
+      width: 120px;
+      @media (min-width: 1000px) {
+        width: 200px;
+      }
+
+      img {
+        margin-top: 3rem;
+        width: 200px;
+      }
+    }
+
+    .content-description {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 2rem;
+      padding: 1rem;
+      width: 6rem;
+
+      @media (min-width: 1000px) {
+        width: 40%;
+      }
+      h3 {
+        margin-top: 1rem;
+        font-size: 1rem;
+
+        @media (min-width: 1000px) {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    .update-qty {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
     }
   }
 
@@ -62,8 +87,12 @@ const Card = styled.div`
 `;
 
 export default function CarritoModal({ open, handleClose }) {
-  const { eliminarProductoCarrito, carritoUsuario } =
-    useContext(CarritoContext);
+  const {
+    carritoUsuario,
+    aumentarCantidad,
+    eliminarProductoCarrito,
+    disminuirCantidad,
+  } = useContext(CarritoContext);
 
   return (
     <div>
@@ -82,18 +111,41 @@ export default function CarritoModal({ open, handleClose }) {
           >
             Carrito de Compras
           </Typography>
+          <Link to="/mi-carro" className="text-white no-underline">
+            <div className=" w-44 bg-slate-400 text-white py-7 mx-4 px-4 hover:bg-slate-700">
+              Completar Orden
+            </div>
+          </Link>
           <div id="modal-modal-description" sx={{ mt: 2 }}>
             {carritoUsuario?.map((item) => (
               <Card>
-                <div className="content-img">
-                  <img
-                    src={item.producto?.imagenes[0]}
-                    alt="producto-carrito"
-                  />
+                <div className="content-img-description">
+                  <div className="content-img">
+                    <img
+                      src={item.producto?.imagenes[0]}
+                      alt="producto-carrito"
+                    />
+                  </div>
+                  <div className="content-description">
+                    <h3>{item.producto.nombreProducto}</h3>
+                    <h3>$ {item.producto.precioSumado}</h3>
+                  </div>
                 </div>
-                <div className="content-description">
-                  <h4>{item.producto.nombreProducto}</h4>
-                  <h3>$ {item.producto.precio}</h3>
+
+                <div className="update-qty">
+                  <button
+                    className="bg-slate-700 text-white px-4 py-2 rounded-full"
+                    onClick={() => aumentarCantidad(item.id)}
+                  >
+                    <ArrowCircleUpIcon />
+                  </button>
+                  <h4 className="text-center mt-3">{item.producto.cantidad}</h4>
+                  <button
+                    className="bg-red-700 text-white px-4 py-2 rounded-full"
+                    onClick={() => disminuirCantidad(item.id)}
+                  >
+                    <ArrowCircleDownIcon />
+                  </button>
                 </div>
                 <div className="content-close">
                   <CloseIcon

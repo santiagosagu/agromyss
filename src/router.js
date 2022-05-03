@@ -13,6 +13,7 @@ import Galeria from "./page/Galeria";
 import ProductosServicios from "./page/ProductosServicios";
 import ProductosBombones from "./modules/Productos/ProductosBombones";
 import ProductosSnack from "./modules/Productos/ProductosSnacks";
+import { MyCart } from "./page/MyCart";
 
 const RouterUser = () => {
   return (
@@ -71,6 +72,8 @@ const RouterUser = () => {
           path="/productos-servicios/productos/:producto/:detalle"
           component={DetalleProducto}
         />
+
+        <Route exact path="/mi-carro" component={MyCart} />
       </Switch>
     </Router>
   );
