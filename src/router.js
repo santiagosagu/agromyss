@@ -14,6 +14,8 @@ import ProductosServicios from "./page/ProductosServicios";
 import ProductosBombones from "./modules/Productos/ProductosBombones";
 import ProductosSnack from "./modules/Productos/ProductosSnacks";
 import { MyCart } from "./page/MyCart";
+import Productos from "./modules/Productos";
+import Chocolates from "./modules/Productos/chocolates";
 
 const RouterUser = () => {
   return (
@@ -37,6 +39,18 @@ const RouterUser = () => {
           component={ProductosServicios}
         />
 
+        <Route
+          exact
+          path="/productos-servicios/productos"
+          component={Productos}
+        />
+
+        <Route
+          exact
+          path="/productos-servicios/productos/chocolates"
+          component={Chocolates}
+        />
+
         <Route exact path="/sustentabilidad" component={Sustentabilidad} />
         <Route
           exact
@@ -51,7 +65,7 @@ const RouterUser = () => {
         {/* productos chocolates */}
         <Route
           exact
-          path="/productos-servicios/productos/chocolatinas"
+          path="/productos-servicios/productos/chocolates/chocolatinas"
           component={ProductosChocolates}
         />
 

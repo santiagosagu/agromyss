@@ -286,19 +286,23 @@ const Header = () => {
                       {verProductosServicios && (
                         <ul>
                           <li onMouseOver={() => mostrarIndustria()}>
-                            productos{" "}
+                            <Link to="/productos-servicios/productos">
+                              productos
+                            </Link>
                           </li>
                           {verIndustria && (
                             <div className="industria">
                               <ul>
                                 <li onMouseOver={() => mostrarChocolates()}>
-                                  Chocolates{" "}
+                                  <Link to="/productos-servicios/productos/chocolates">
+                                    Chocolates
+                                  </Link>
                                 </li>
                                 <div className="chocolates">
                                   {verChocolates && (
                                     <ul>
                                       <li>
-                                        <Link to="/productos-servicios/productos/chocolatinas">
+                                        <Link to="/productos-servicios/productos/chocolates/chocolatinas">
                                           {" "}
                                           Chocolatinas{" "}
                                         </Link>
