@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect } from "react";
+import React, { useContext } from "react";
 import Styled from "@emotion/styled";
 import Header from "../components/Header";
 import idiomaContext from "../context/idioma/idiomaContext";
@@ -259,42 +259,42 @@ const Home = () => {
 
   scroll.scrollTo();
 
-  const prueba = () => {
-    // var widget = new WidgetCheckout({
-    //   currency: "COP",
-    //   amountInCents: 2490000,
-    //   reference: "AD002901221",
-    //   publicKey: "pub_fENJ3hdTJxdzs3hd35PxDBSMB4f85VrgiY3b6s1",
-    //   redirectUrl: "https://transaction-redirect.wompi.co/check", // Opcional
-    //   taxInCents: {
-    //     // Opcional
-    //     vat: 1900,
-    //     consumption: 800,
-    //   },
-    //   customerData: {
-    //     // Opcional
-    //     email: "lola@gmail.com",
-    //     fullName: "Lola Flores",
-    //     phoneNumber: "3040777777",
-    //     phoneNumberPrefix: "+57",
-    //     legalId: "123456789",
-    //     legalIdType: "CC",
-    //   },
-    //   shippingAddress: {
-    //     // Opcional
-    //     addressLine1: "Calle 123 # 4-5",
-    //     city: "Bogota",
-    //     phoneNumber: "3019444444",
-    //     region: "Cundinamarca",
-    //     country: "CO",
-    //   },
-    // });
-    // widget.open(function (result) {
-    //   var transaction = result.transaction;
-    //   console.log("Transaction ID: ", transaction.id);
-    //   console.log("Transaction object: ", transaction);
-    // });
-  };
+  // const prueba = () => {
+  //   // var widget = new WidgetCheckout({
+  //   //   currency: "COP",
+  //   //   amountInCents: 2490000,
+  //   //   reference: "AD002901221",
+  //   //   publicKey: "pub_fENJ3hdTJxdzs3hd35PxDBSMB4f85VrgiY3b6s1",
+  //   //   redirectUrl: "https://transaction-redirect.wompi.co/check", // Opcional
+  //   //   taxInCents: {
+  //   //     // Opcional
+  //   //     vat: 1900,
+  //   //     consumption: 800,
+  //   //   },
+  //   //   customerData: {
+  //   //     // Opcional
+  //   //     email: "lola@gmail.com",
+  //   //     fullName: "Lola Flores",
+  //   //     phoneNumber: "3040777777",
+  //   //     phoneNumberPrefix: "+57",
+  //   //     legalId: "123456789",
+  //   //     legalIdType: "CC",
+  //   //   },
+  //   //   shippingAddress: {
+  //   //     // Opcional
+  //   //     addressLine1: "Calle 123 # 4-5",
+  //   //     city: "Bogota",
+  //   //     phoneNumber: "3019444444",
+  //   //     region: "Cundinamarca",
+  //   //     country: "CO",
+  //   //   },
+  //   // });
+  //   // widget.open(function (result) {
+  //   //   var transaction = result.transaction;
+  //   //   console.log("Transaction ID: ", transaction.id);
+  //   //   console.log("Transaction object: ", transaction);
+  //   // });
+  // };
 
   return (
     <Contenedor>

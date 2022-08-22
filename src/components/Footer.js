@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import Styled from "@emotion/styled";
-import { Link } from "react-router-dom";
-import idiomaContext from "../context/idioma/idiomaContext";
+// import idiomaContext from "../context/idioma/idiomaContext";
 import PersonPinCircleIcon from "@mui/icons-material/PersonPinCircle";
 
 const Contenedor = Styled.div`
@@ -58,7 +57,7 @@ const Contenedor = Styled.div`
 `;
 
 const Footer = () => {
-  const { idioma } = useContext(idiomaContext);
+  // const { idioma } = useContext(idiomaContext);
 
   return (
     <Contenedor className="px-4">

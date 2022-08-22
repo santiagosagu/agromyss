@@ -6,7 +6,7 @@ import styled from "@emotion/styled";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 import { CarritoContext } from "../context/carritoContext/CarritoContext";
-import { Card } from "@mui/material";
+// import { Card } from "@mui/material";
 import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
 
 const Contenedor = styled.div`

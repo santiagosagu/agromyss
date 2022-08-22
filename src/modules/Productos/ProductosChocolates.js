@@ -89,90 +89,90 @@ const Contenedor = Styled.div`
     }
 `;
 
-const productos = [
-  {
-    id: 1,
-    nombre: "Barra de chocolate amargo - sin agregados",
-    precio: 20000,
-    img: [
-      "https://www.evok.com.co/wp-content/uploads/2019/10/BarrasAmargo4.png",
-      "https://www.evok.com.co/wp-content/uploads/2019/10/BarrasAmargo-7715.png",
-      "https://www.evok.com.co/wp-content/uploads/2019/10/Fondoblanco3-7717.png",
-    ],
-    url: "chocolatina1",
-  },
-  {
-    id: 2,
-    nombre: "Barra de chocolate amargo - sin agregados",
-    descripcion: "Barra de chocolate sin agregados al 100 % de cacao por 90 g.",
-    precio: 30000,
-    img: [
-      "https://www.evok.com.co/wp-content/uploads/2019/10/BarrasAmargo2-7715.png",
-      "https://www.evok.com.co/wp-content/uploads/2019/10/BarrasAmargo2-7715.png",
-      "https://www.evok.com.co/wp-content/uploads/2019/10/Fondoblanco3-7717.png",
-    ],
-    url: "chocolatina2",
-  },
-  {
-    id: 3,
-    nombre:
-      "Barra de chocolate - frambuesa - manzanilla - manzana - cacao nibs",
-    precio: 40000,
-    img: ["https://www.evok.com.co/wp-content/uploads/2019/10/Fondoblanco.png"],
-    url: "chocolatina3",
-  },
+// const productos = [
+//   {
+//     id: 1,
+//     nombre: "Barra de chocolate amargo - sin agregados",
+//     precio: 20000,
+//     img: [
+//       "https://www.evok.com.co/wp-content/uploads/2019/10/BarrasAmargo4.png",
+//       "https://www.evok.com.co/wp-content/uploads/2019/10/BarrasAmargo-7715.png",
+//       "https://www.evok.com.co/wp-content/uploads/2019/10/Fondoblanco3-7717.png",
+//     ],
+//     url: "chocolatina1",
+//   },
+//   {
+//     id: 2,
+//     nombre: "Barra de chocolate amargo - sin agregados",
+//     descripcion: "Barra de chocolate sin agregados al 100 % de cacao por 90 g.",
+//     precio: 30000,
+//     img: [
+//       "https://www.evok.com.co/wp-content/uploads/2019/10/BarrasAmargo2-7715.png",
+//       "https://www.evok.com.co/wp-content/uploads/2019/10/BarrasAmargo2-7715.png",
+//       "https://www.evok.com.co/wp-content/uploads/2019/10/Fondoblanco3-7717.png",
+//     ],
+//     url: "chocolatina2",
+//   },
+//   {
+//     id: 3,
+//     nombre:
+//       "Barra de chocolate - frambuesa - manzanilla - manzana - cacao nibs",
+//     precio: 40000,
+//     img: ["https://www.evok.com.co/wp-content/uploads/2019/10/Fondoblanco.png"],
+//     url: "chocolatina3",
+//   },
 
-  // {
-  //   id: 2,
-  //   nombre: "bombones",
-  //   url: "bombones",
-  //   productos: [
-  //     {
-  //       id: 1,
-  //       nombre: "bombones1",
-  //       precio: 20000,
-  //       url: "bombones1",
-  //     },
-  //     {
-  //       id: 2,
-  //       nombre: "bombones2",
-  //       precio: 30000,
-  //       url: "bombones2",
-  //     },
-  //     {
-  //       id: 3,
-  //       nombre: "bombones3",
-  //       precio: 40000,
-  //       url: "bombones3",
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: 3,
-  //   nombre: "snacks",
-  //   url: "snacks",
-  //   productos: [
-  //     {
-  //       id: 1,
-  //       nombre: "snacks1",
-  //       precio: 20000,
-  //       url: "snacks1",
-  //     },
-  //     {
-  //       id: 2,
-  //       nombre: "snacks2",
-  //       precio: 30000,
-  //       url: "snacks2",
-  //     },
-  //     {
-  //       id: 3,
-  //       nombre: "snacks3",
-  //       precio: 40000,
-  //       url: "snacks3",
-  //     },
-  //   ],
-  // },
-];
+//   // {
+//   //   id: 2,
+//   //   nombre: "bombones",
+//   //   url: "bombones",
+//   //   productos: [
+//   //     {
+//   //       id: 1,
+//   //       nombre: "bombones1",
+//   //       precio: 20000,
+//   //       url: "bombones1",
+//   //     },
+//   //     {
+//   //       id: 2,
+//   //       nombre: "bombones2",
+//   //       precio: 30000,
+//   //       url: "bombones2",
+//   //     },
+//   //     {
+//   //       id: 3,
+//   //       nombre: "bombones3",
+//   //       precio: 40000,
+//   //       url: "bombones3",
+//   //     },
+//   //   ],
+//   // },
+//   // {
+//   //   id: 3,
+//   //   nombre: "snacks",
+//   //   url: "snacks",
+//   //   productos: [
+//   //     {
+//   //       id: 1,
+//   //       nombre: "snacks1",
+//   //       precio: 20000,
+//   //       url: "snacks1",
+//   //     },
+//   //     {
+//   //       id: 2,
+//   //       nombre: "snacks2",
+//   //       precio: 30000,
+//   //       url: "snacks2",
+//   //     },
+//   //     {
+//   //       id: 3,
+//   //       nombre: "snacks3",
+//   //       precio: 40000,
+//   //       url: "snacks3",
+//   //     },
+//   //   ],
+//   // },
+// ];
 
 const productosIngles = [
   {
