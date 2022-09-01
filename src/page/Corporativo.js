@@ -1,12 +1,10 @@
 import React, { useContext } from "react";
 import Styled from "@emotion/styled";
-import Header from "../components/Header";
 import idiomaContext from "../context/idioma/idiomaContext";
 import SlowMotionVideoIcon from "@mui/icons-material/SlowMotionVideo";
 import { Link } from "react-router-dom";
 import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
 import { animateScroll as scroll } from "react-scroll";
-import Footer from "../components/Footer";
 
 const Contenido = Styled.div`
     @media(min-width: 1200px){
@@ -111,10 +109,9 @@ const Corporativo = () => {
 
   return (
     <Contenido>
-      <Header />
       {idioma === "español" && (
         <div onMouseOver={ocultarEnlaces}>
-          <h1 className="text-[2.6rem]">Filosofia, Principios y Valores</h1>
+          <h1 className="text-[2.5rem]">Filosofia, Principios y Valores</h1>
           <Link
             to="/corporativo/video-corporativo"
             style={{
@@ -201,8 +198,6 @@ const Corporativo = () => {
               </div>
             </div>
           </div>
-
-          <Footer />
         </div>
       )}
 
@@ -293,8 +288,6 @@ const Corporativo = () => {
               </div>
             </div>
           </div>
-
-          <Footer />
         </div>
       )}
     </Contenido>

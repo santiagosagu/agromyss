@@ -1,11 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
-import Header from "../components/Header";
 import Styled from "@emotion/styled";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { CarritoContext } from "../context/carritoContext/CarritoContext";
 import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
-import Footer from "../components/Footer";
 import { db } from "../FirebaseConfig";
 
 const Contenedor = Styled.div`
@@ -150,8 +148,6 @@ const DetalleProducto = ({ match }) => {
 
   return (
     <Contenedor>
-      <Header />
-
       {productoActual.length > 0 && (
         <div onMouseOver={ocultarEnlaces}>
           <div className="primera-sesion">
@@ -248,8 +244,6 @@ const DetalleProducto = ({ match }) => {
           </div>
         </div>
       )}
-
-      <Footer />
     </Contenedor>
   );
 };

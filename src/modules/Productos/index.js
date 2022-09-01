@@ -1,6 +1,4 @@
 import React, { useContext } from "react";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import Styled from "@emotion/styled";
 import imagenPrincipal from "../../imagenes/Productos.png";
 import { useEnlacesContext } from "../../context/enlaces/UseEnlaces";
@@ -40,8 +38,6 @@ const Productos = () => {
 
   return (
     <Contenedor>
-      <Header />
-
       <div onMouseOver={ocultarEnlaces}>
         {idioma === "español" ? (
           <h1 className="text-[2.5rem]">Productos</h1>
@@ -125,8 +121,6 @@ const Productos = () => {
 
         <div style={{ marginBottom: "10rem" }}></div>
       </div>
-
-      <Footer />
     </Contenedor>
   );
 };

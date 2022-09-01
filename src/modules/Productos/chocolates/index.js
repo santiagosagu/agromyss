@@ -3,8 +3,6 @@ import React, { useContext } from "react";
 import Styled from "@emotion/styled";
 import imagenPrincipal from "../../../imagenes/Productos.png";
 import { Link } from "react-router-dom";
-import Header from "../../../components/Header";
-import Footer from "../../../components/Footer";
 import { useEnlacesContext } from "../../../context/enlaces/UseEnlaces";
 import idiomaContext from "../../../context/idioma/idiomaContext";
 import { Divider } from "@mui/material";
@@ -42,8 +40,6 @@ const Chocolates = () => {
 
   return (
     <Contenedor>
-      <Header />
-
       <div onMouseOver={ocultarEnlaces}>
         {idioma === "español" ? (
           <h1 className="text-[2.6rem]">Chocolates</h1>
@@ -270,8 +266,6 @@ const Chocolates = () => {
 
         <div style={{ marginBottom: "10rem" }}></div>
       </div>
-
-      <Footer />
     </Contenedor>
   );
 };

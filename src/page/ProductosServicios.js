@@ -1,6 +1,4 @@
 import React, { useContext } from "react";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 import Styled from "@emotion/styled";
 import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
 import imagenPrincipal from "../imagenes/imagen-principal-sobre-agromyss.jpg";
@@ -39,21 +37,17 @@ const ProductosServicios = () => {
 
   return (
     <Contenedor>
-      <Header />
-
       <div onMouseOver={ocultarEnlaces}>
         {idioma === "español" ? (
-          <h1>Productos y Servicios</h1>
+          <h1 className="text-[2.5rem]">Productos y Servicios</h1>
         ) : (
-          <h1>Product and Service</h1>
+          <h1 className="text-[2.5rem]">Product and Service</h1>
         )}
 
         <div className="contenedor-imagen"></div>
 
         <div style={{ marginBottom: "10rem" }}></div>
       </div>
-
-      <Footer />
     </Contenedor>
   );
 };

@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import idiomaContext from "../context/idioma/idiomaContext";
 import Styled from "@emotion/styled";
-import Header from "../components/Header";
 import FormContacto from "../components/formularios/FormContacto";
 import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
 import { animateScroll as scroll } from "react-scroll";
@@ -142,7 +141,6 @@ const Contacto = () => {
 
   return (
     <>
-      <Header />
       <Contenedor onMouseOver={ocultarEnlaces}>
         {idioma === "español" && (
           <>

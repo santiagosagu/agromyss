@@ -1,9 +1,7 @@
 import React, { useContext } from "react";
 import GaleriaComponent from "../components/galeria";
-import Header from "../components/Header";
 import styled from "@emotion/styled";
 import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
-import Footer from "../components/Footer";
 
 const Contenedor = styled.div`
   .container {
@@ -21,13 +19,10 @@ const Galeria = () => {
 
   return (
     <Contenedor>
-      <Header />
       <div className="container" onMouseOver={ocultarEnlaces}>
         <h1>Galeria</h1>
         <GaleriaComponent />
       </div>
-
-      <Footer />
     </Contenedor>
   );
 };

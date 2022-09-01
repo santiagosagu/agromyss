@@ -16,79 +16,82 @@ import ProductosSnack from "./modules/Productos/ProductosSnacks";
 import { MyCart } from "./page/MyCart";
 import Productos from "./modules/Productos";
 import Chocolates from "./modules/Productos/chocolates";
+import Layout from "./components/Layout";
 
 const RouterUser = () => {
   return (
     <Router>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/corporativo" component={Corporativo} />
-        <Route exact path="/contacto" component={Contacto} />
-        <Route
-          exact
-          path="/corporativo/video-corporativo"
-          component={VideoCorporativoPagina}
-        />
+      <Layout>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/corporativo" component={Corporativo} />
+          <Route exact path="/contacto" component={Contacto} />
+          <Route
+            exact
+            path="/corporativo/video-corporativo"
+            component={VideoCorporativoPagina}
+          />
 
-        <Route exact path="/sobre-agromyss" component={SobreAgromyss} />
-        <Route exact path="/sobre-agromyss/:item" component={SobreAgromyss} />
+          <Route exact path="/sobre-agromyss" component={SobreAgromyss} />
+          <Route exact path="/sobre-agromyss/:item" component={SobreAgromyss} />
 
-        <Route
-          exact
-          path="/productos-servicios"
-          component={ProductosServicios}
-        />
+          <Route
+            exact
+            path="/productos-servicios"
+            component={ProductosServicios}
+          />
 
-        <Route
-          exact
-          path="/productos-servicios/productos"
-          component={Productos}
-        />
+          <Route
+            exact
+            path="/productos-servicios/productos"
+            component={Productos}
+          />
 
-        <Route
-          exact
-          path="/productos-servicios/productos/chocolates"
-          component={Chocolates}
-        />
+          <Route
+            exact
+            path="/productos-servicios/productos/chocolates"
+            component={Chocolates}
+          />
 
-        <Route exact path="/sustentabilidad" component={Sustentabilidad} />
-        <Route
-          exact
-          path="/sustentabilidad/:item"
-          component={Sustentabilidad}
-        />
+          <Route exact path="/sustentabilidad" component={Sustentabilidad} />
+          <Route
+            exact
+            path="/sustentabilidad/:item"
+            component={Sustentabilidad}
+          />
 
-        <Route exact path="/galeria" component={Galeria} />
+          <Route exact path="/galeria" component={Galeria} />
 
-        <Route exact path="/admin" component={Admin} />
+          <Route exact path="/admin" component={Admin} />
 
-        {/* productos chocolates */}
-        <Route
-          exact
-          path="/productos-servicios/productos/chocolates/chocolatinas"
-          component={ProductosChocolates}
-        />
+          {/* productos chocolates */}
+          <Route
+            exact
+            path="/productos-servicios/productos/chocolates/chocolatinas"
+            component={ProductosChocolates}
+          />
 
-        <Route
-          exact
-          path="/productos-servicios/productos/bombones"
-          component={ProductosBombones}
-        />
+          <Route
+            exact
+            path="/productos-servicios/productos/bombones"
+            component={ProductosBombones}
+          />
 
-        <Route
-          exact
-          path="/productos-servicios/productos/snacks"
-          component={ProductosSnack}
-        />
+          <Route
+            exact
+            path="/productos-servicios/productos/snacks"
+            component={ProductosSnack}
+          />
 
-        <Route
-          exact
-          path="/productos-servicios/productos/:producto/:detalle"
-          component={DetalleProducto}
-        />
+          <Route
+            exact
+            path="/productos-servicios/productos/:producto/:detalle"
+            component={DetalleProducto}
+          />
 
-        <Route exact path="/mi-carrito" component={MyCart} />
-      </Switch>
+          <Route exact path="/mi-carrito" component={MyCart} />
+        </Switch>
+      </Layout>
     </Router>
   );
 };

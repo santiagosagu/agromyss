@@ -1,7 +1,5 @@
 import React from "react";
-import Header from "../components/Header";
 import Styled from "@emotion/styled";
-import Footer from "../components/Footer";
 
 const Contenedor = Styled.div`
     
@@ -35,10 +33,8 @@ const Contenedor = Styled.div`
 const VideoCorporativoPagina = () => {
   return (
     <Contenedor>
-      <Header />
-
       <div className="contenedor-video">
-        <h2>Video Corporativo</h2>
+        <h2 className="text-[2.5rem]">Video Corporativo</h2>
         <iframe
           src="https://www.youtube.com/embed/s5O-0a_mDaI"
           title="YouTube video player"
@@ -47,8 +43,6 @@ const VideoCorporativoPagina = () => {
           allowfullscreen="true"
         ></iframe>
       </div>
-
-      <Footer />
     </Contenedor>
   );
 };

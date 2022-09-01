@@ -1,7 +1,5 @@
 import React, { useContext } from "react";
 import CloseIcon from "@mui/icons-material/Close";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import styled from "@emotion/styled";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
@@ -93,7 +91,6 @@ export const MyCart = () => {
   if (carritoUsuario.length === 0) {
     return (
       <Contenedor>
-        <Header />
         <div className="md:mt-36 text-center flex flex-col justify-center">
           <h2>Aun no tienes productos en el carrito</h2>
           <div className="mx-auto">
@@ -103,14 +100,12 @@ export const MyCart = () => {
             />
           </div>
         </div>
-        <Footer />
       </Contenedor>
     );
   }
 
   return (
     <Contenedor>
-      <Header />
       <div className="container" onMouseOver={ocultarEnlaces}>
         <h1>Mi Compra</h1>
 
@@ -163,8 +158,6 @@ export const MyCart = () => {
           <p>TOTAL PAGAR: $ {totalPagar}</p>
         </div>
       </div>
-
-      <Footer />
     </Contenedor>
   );
 };

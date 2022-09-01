@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import Header from "../components/Header";
 import authContext from "../context/auth/authContext";
 import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
 
@@ -10,7 +9,6 @@ const Admin = () => {
 
   return (
     <div>
-      <Header />
       <div
         style={{ marginTop: "8rem", textAlign: "center" }}
         onMouseOver={ocultarEnlaces}

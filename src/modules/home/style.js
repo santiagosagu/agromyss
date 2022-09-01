@@ -1,58 +1,45 @@
-import React, { useContext } from "react";
-import Styled from "@emotion/styled";
-import idiomaContext from "../context/idioma/idiomaContext";
-import VideoCorporativo from "../components/VideoCorporativo";
-import iconoIndustria from "../imagenes/icono-industria.svg";
-import iconoServicios from "../imagenes/icono-servicios.svg";
-import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
-import { animateScroll as scroll } from "react-scroll";
-import HomeModuleEspañol from "../modules/home/español/HomeModuleEspañol";
-import HomeModuleIngles from "../modules/home/ingles/HomeModuleIngles";
+import styled from "@emotion/styled";
 
-const Contenedor = Styled.div` 
+export const Contenedor = styled.div`
+  .banner {
+    background-image: url("/images/contactenos.jpg");
+    width: 100%;
+    height: 500px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
 
-    .banner{
-        background-image: url('/images/contactenos.jpg');
-        width: 100%;
+    @media (min-width: 1200px) {
+      margin-top: 4rem;
+    }
+
+    div {
+      background-color: rgba(0, 0, 0, 0.5);
+      width: 100%;
+      height: 100%;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      @media (min-width: 768px) {
         height: 500px;
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
-        color: #fff;
+        font-size: 2rem;
+      }
 
-        @media(min-width: 1200px){
-          margin-top: 4rem;
+      h4 {
+        font-size: 1.4rem;
+        font-weight: bold;
+
+        @media (min-width: 768px) {
+          font-size: 2rem;
         }
-        
-        
-        div{
-          background-color: rgba(0, 0, 0, 0.5);
-          width: 100%;
-          height: 100%;
-          padding: 1.5rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-
-            @media(min-width: 768px){
-              height: 500px;
-                background-position: center center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                font-size: 2rem;
-            }
-
-            h4{
-              font-size: 1.4rem;
-              font-weight: bold;
-
-              @media(min-width: 768px){
-                  font-size: 2rem
-
-                }
-            }
-        }   
+      }
     }
 
     .slogan{
@@ -244,77 +231,5 @@ const Contenedor = Styled.div`
             }
         }
 
-    }
+  }
 `;
-
-// const wompiGlobal = $wompi;
-const Home = () => {
-  /* context para el idioma */
-  const { idioma } = useContext(idiomaContext);
-
-  const { ocultarEnlaces } = useContext(useEnlacesContext);
-
-  // const widget = useRef(null);
-
-  scroll.scrollTo();
-
-  // const prueba = () => {
-  //   // var widget = new WidgetCheckout({
-  //   //   currency: "COP",
-  //   //   amountInCents: 2490000,
-  //   //   reference: "AD002901221",
-  //   //   publicKey: "pub_fENJ3hdTJxdzs3hd35PxDBSMB4f85VrgiY3b6s1",
-  //   //   redirectUrl: "https://transaction-redirect.wompi.co/check", // Opcional
-  //   //   taxInCents: {
-  //   //     // Opcional
-  //   //     vat: 1900,
-  //   //     consumption: 800,
-  //   //   },
-  //   //   customerData: {
-  //   //     // Opcional
-  //   //     email: "lola@gmail.com",
-  //   //     fullName: "Lola Flores",
-  //   //     phoneNumber: "3040777777",
-  //   //     phoneNumberPrefix: "+57",
-  //   //     legalId: "123456789",
-  //   //     legalIdType: "CC",
-  //   //   },
-  //   //   shippingAddress: {
-  //   //     // Opcional
-  //   //     addressLine1: "Calle 123 # 4-5",
-  //   //     city: "Bogota",
-  //   //     phoneNumber: "3019444444",
-  //   //     region: "Cundinamarca",
-  //   //     country: "CO",
-  //   //   },
-  //   // });
-  //   // widget.open(function (result) {
-  //   //   var transaction = result.transaction;
-  //   //   console.log("Transaction ID: ", transaction.id);
-  //   //   console.log("Transaction object: ", transaction);
-  //   // });
-  // };
-
-  return (
-    <Contenedor>
-      {idioma === "español" && (
-        <HomeModuleEspañol
-          ocultarEnlaces={ocultarEnlaces}
-          videoCorporativo={<VideoCorporativo />}
-          iconoIndustria={iconoIndustria}
-          iconoServicios={iconoServicios}
-        />
-      )}
-      {idioma === "ingles" && (
-        <HomeModuleIngles
-          ocultarEnlaces={ocultarEnlaces}
-          videoCorporativo={<VideoCorporativo />}
-          iconoIndustria={iconoIndustria}
-          iconoServicios={iconoServicios}
-        />
-      )}
-    </Contenedor>
-  );
-};
-
-export default Home;

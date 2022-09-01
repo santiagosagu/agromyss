@@ -1,11 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import idiomaContext from "../../context/idioma/idiomaContext";
 import Styled from "@emotion/styled";
-import Header from "../../components/Header";
 import { CarritoContext } from "../../context/carritoContext/CarritoContext";
 import { useEnlacesContext } from "../../context/enlaces/UseEnlaces";
 import { animateScroll as scroll } from "react-scroll";
-import Footer from "../../components/Footer";
 import { db } from "../../FirebaseConfig";
 
 const Contenedor = Styled.div`
@@ -276,12 +274,11 @@ const ProductosBombones = ({ match, history }) => {
 
   return (
     <>
-      <Header />
       <Contenedor onMouseOver={ocultarEnlaces}>
         {idioma === "español" && (
           <>
             <div className="producto">
-              <h2>Bombones</h2>
+              <h2 className="text-[2.5rem]">Bombones</h2>
               <div className="producto-card">
                 {chocolatinas.map((product) => (
                   <div className="producto-card-content">
@@ -308,7 +305,7 @@ const ProductosBombones = ({ match, history }) => {
         {idioma === "ingles" && (
           <>
             <div className="producto">
-              <h2>Chocolate Bars</h2>
+              <h2 className="text-[2.5rem]">Chocolate Bars</h2>
               <div className="producto-card">
                 {productosIngles.map((product) => (
                   <div className="producto-card-content">
@@ -331,8 +328,6 @@ const ProductosBombones = ({ match, history }) => {
             </div>
           </>
         )}
-
-        <Footer />
       </Contenedor>
     </>
   );

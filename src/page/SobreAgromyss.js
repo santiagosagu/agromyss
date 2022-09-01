@@ -2,12 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import Styled from "@emotion/styled";
 import idiomaContext from "../context/idioma/idiomaContext";
 import imagenPrincipal from "../imagenes/imagen-principal-sobre-agromyss.jpg";
-import Header from "../components/Header";
 import SobreAgromyssEspañol from "../modules/sobreAgromyss/español";
 import SobreAgromyssIngles from "../modules/sobreAgromyss/ingles";
 import { animateScroll as scroll, scroller } from "react-scroll";
 import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
-import Footer from "../components/Footer";
 
 const Contenedor = Styled.div`
     @media(min-width: 1200px){
@@ -109,8 +107,6 @@ const SobreAgromyss = ({ match }) => {
 
   return (
     <Contenedor>
-      <Header />
-
       <div onMouseOver={ocultarEnlaces}>
         {idioma === "español" ? (
           <h1 className="text-[2.6rem]">Sobre Agromyss</h1>
@@ -126,8 +122,6 @@ const SobreAgromyss = ({ match }) => {
           <SobreAgromyssIngles />
         )}
       </div>
-
-      <Footer />
     </Contenedor>
   );
 };

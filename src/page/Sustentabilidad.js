@@ -2,13 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import Styled from "@emotion/styled";
 import idiomaContext from "../context/idioma/idiomaContext";
 import imagenPrincipal from "../imagenes/imagen-principal-sustentabilidad.jpg";
-import Header from "../components/Header";
 import SustentabilidadEspañol from "../modules/sustentabilidad/español";
 import SustentabilidadIngles from "../modules/sustentabilidad/ingles";
 import { animateScroll as scroll, scroller } from "react-scroll";
 
 import { useEnlacesContext } from "../context/enlaces/UseEnlaces";
-import Footer from "../components/Footer";
 
 const Contenedor = Styled.div`
     @media(min-width: 1200px){
@@ -155,13 +153,11 @@ const Sustentabilidad = ({ match }) => {
 
   return (
     <Contenedor>
-      <Header />
-
       <div onMouseOver={ocultarEnlaces}>
         {idioma === "español" ? (
-          <h1>Sustentabilidad</h1>
+          <h1 className="text-[2.5rem]">Sustentabilidad</h1>
         ) : (
-          <h1>Sustainability</h1>
+          <h1 className="text-[2.5rem]">Sustainability</h1>
         )}
 
         <div className="contenedor-imagen"></div>
@@ -172,8 +168,6 @@ const Sustentabilidad = ({ match }) => {
           <SustentabilidadIngles />
         )}
       </div>
-
-      <Footer />
     </Contenedor>
   );
 };
