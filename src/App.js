@@ -7,6 +7,7 @@ import IdiomaState from "./context/idioma/idiomaState";
 import UseEnlaces from "./context/enlaces/UseEnlaces";
 import RouterUser from "./router";
 import { Helmet } from "react-helmet";
+import "./App.css";
 
 function App() {
   return (

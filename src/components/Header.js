@@ -8,6 +8,7 @@ import Registro from "./Registro";
 import CarritoIcon from "../components/carrito/CarritoIcon";
 import Button from "@mui/material/Button";
 import CarritoModal from "./carrito/CarritoModal";
+import { Menu, MenuItem } from "@mui/material";
 
 const Contenedor = Styled.div`
         width: 100%;
@@ -218,6 +219,21 @@ const Header = () => {
 
   const { miPerfil, autenticado, cerrarSesion, setMiPerfil, isAdmin } =
     useContext(authContext);
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const openSetIdioma = Boolean(anchorEl);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleCloseTest = (idiomaProps) => {
+    setAnchorEl(null);
+    if (idiomaProps === "español" || idiomaProps === "ingles") {
+      setIdioma(idiomaProps);
+    }
+  };
 
   /* hooks */
   const {
@@ -614,31 +630,34 @@ const Header = () => {
                 justifyContent: "flex-end",
               }}
             >
-              <button
-                type="button"
-                className="btn dropdown-toggle"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                style={{ color: "#fff" }}
-              >
-                Idioma
-              </button>
-              <ul className="dropdown-menu">
-                <p
-                  className="dropdown-item"
-                  onClick={() => setIdioma("ingles")}
+              <div>
+                <Button
+                  aria-controls={openSetIdioma ? "basic-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={openSetIdioma ? "true" : undefined}
+                  onClick={handleClick}
+                  variant="contained"
+                  style={{ color: "white" }}
                 >
-                  Ingles
-                </p>
-                <hr />
-                <p
-                  className="dropdown-item"
-                  onClick={() => setIdioma("español")}
+                  Idioma
+                </Button>
+                <Menu
+                  id="basic-menu"
+                  anchorEl={anchorEl}
+                  open={openSetIdioma}
+                  onClose={handleCloseTest}
+                  MenuListProps={{
+                    "aria-labelledby": "basic-button",
+                  }}
                 >
-                  {" "}
-                  Español
-                </p>
-              </ul>
+                  <MenuItem onClick={() => handleCloseTest("español")}>
+                    Español
+                  </MenuItem>
+                  <MenuItem onClick={() => handleCloseTest("ingles")}>
+                    Ingles
+                  </MenuItem>
+                </Menu>
+              </div>
             </div>
           </div>
           {miPerfil && <Registro />}
@@ -950,31 +969,34 @@ const Header = () => {
                 justifyContent: "flex-end",
               }}
             >
-              <button
-                type="button"
-                className="btn dropdown-toggle"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                style={{ color: "#fff" }}
-              >
-                Idioma
-              </button>
-              <ul className="dropdown-menu">
-                <p
-                  className="dropdown-item"
-                  onClick={() => setIdioma("ingles")}
+              <div>
+                <Button
+                  aria-controls={openSetIdioma ? "basic-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={openSetIdioma ? "true" : undefined}
+                  onClick={handleClick}
+                  variant="contained"
+                  style={{ color: "white" }}
                 >
-                  Ingles
-                </p>
-                <hr />
-                <p
-                  className="dropdown-item"
-                  onClick={() => setIdioma("español")}
+                  Idioma
+                </Button>
+                <Menu
+                  id="basic-menu"
+                  anchorEl={anchorEl}
+                  open={openSetIdioma}
+                  onClose={handleCloseTest}
+                  MenuListProps={{
+                    "aria-labelledby": "basic-button",
+                  }}
                 >
-                  {" "}
-                  Español
-                </p>
-              </ul>
+                  <MenuItem onClick={() => handleCloseTest("español")}>
+                    Español
+                  </MenuItem>
+                  <MenuItem onClick={() => handleCloseTest("ingles")}>
+                    Ingles
+                  </MenuItem>
+                </Menu>
+              </div>
             </div>
           </div>
         </>

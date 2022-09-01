@@ -45,15 +45,19 @@ const Chocolates = () => {
       <Header />
 
       <div onMouseOver={ocultarEnlaces}>
-        {idioma === "español" ? <h1>Chocolates</h1> : <h1>Chocolate</h1>}
+        {idioma === "español" ? (
+          <h1 className="text-[2.6rem]">Chocolates</h1>
+        ) : (
+          <h1 className="text-[2.6rem]">Chocolate</h1>
+        )}
 
         <div className="contenedor-imagen"></div>
 
-        <h3 className="text-center my-8">Chocolatinas</h3>
+        <h3 className="text-center my-8 text-[2.2]">Chocolatinas</h3>
 
         <div className="flex lg:justify-center flex-nowrap overflow-x-scroll lg:overflow-x-hidden w-screen">
           <div className="w-[25rem] lg:m-[1rem]">
-            <h4 className="text-center">
+            <h4 className="text-center text-[1.6rem]">
               {idioma === "español" ? "Chocolatias 1" : "Chocolatinas 1"}
             </h4>
             <div className="w-[25rem] h-[30rem]">
@@ -86,7 +90,7 @@ const Chocolates = () => {
           </div>
 
           <div className="w-[25rem] lg:m-[1rem]">
-            <h4 className="text-center">
+            <h4 className="text-center text-[1.6rem]">
               {idioma === "español" ? "Chocolatinas 2" : "Chocolatinas 2"}
             </h4>
             <div className="w-[25rem] h-[30rem]">
@@ -119,7 +123,7 @@ const Chocolates = () => {
           </div>
 
           <div className="w-[25rem] lg:m-[1rem]">
-            <h4 className="text-center">
+            <h4 className="text-center text-[1.6rem]">
               {idioma === "español" ? "Chocolatinas 3" : "Chocolatinas 3"}
             </h4>
             <div className="w-[25rem] h-[30rem]">
@@ -156,13 +160,13 @@ const Chocolates = () => {
         </Link>
         <div className="mt-[4rem] mb-[3rem] ">
           <Divider>
-            <h3 className="text-center">Bombones</h3>
+            <h3 className="text-center text-[2.2rem]">Bombones</h3>
           </Divider>
         </div>
 
         <div className="flex lg:justify-center flex-nowrap overflow-x-scroll lg:overflow-x-hidden w-screen">
           <div className="w-[25rem] lg:m-[1rem]">
-            <h4 className="text-center">
+            <h4 className="text-center text-[1.6rem]">
               {idioma === "español" ? "Bombones 1" : "Bonbon 1"}
             </h4>
             <div className="w-[25rem] h-[30rem]">
@@ -195,7 +199,7 @@ const Chocolates = () => {
           </div>
 
           <div className="w-[25rem] lg:m-[1rem]">
-            <h4 className="text-center">
+            <h4 className="text-center text-[1.6rem]">
               {idioma === "español" ? "Bombones 2" : "Bonbon 2"}
             </h4>
             <div className="w-[25rem] h-[30rem]">
@@ -228,7 +232,7 @@ const Chocolates = () => {
           </div>
 
           <div className="w-[25rem] lg:m-[1rem]">
-            <h4 className="text-center">
+            <h4 className="text-center text-[1.6rem]">
               {idioma === "español" ? "Bombones 3" : "Bonbon 3"}
             </h4>
             <div className="w-[25rem] h-[30rem]">

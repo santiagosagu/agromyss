@@ -114,7 +114,7 @@ const Corporativo = () => {
       <Header />
       {idioma === "español" && (
         <div onMouseOver={ocultarEnlaces}>
-          <h1>Filosofia, Principios y Valores</h1>
+          <h1 className="text-[2.6rem]">Filosofia, Principios y Valores</h1>
           <Link
             to="/corporativo/video-corporativo"
             style={{
@@ -138,7 +138,7 @@ const Corporativo = () => {
                 />
               </div>
               <div className="contenido-texto">
-                <h2>Nuestra Misión</h2>
+                <h2 className="text-[2rem]">Nuestra Misión</h2>
                 <p>
                   Cultivar, transformar y comercializar productos sustentables y
                   sostenibles de óptima calidad, fundamentados en el
@@ -157,7 +157,7 @@ const Corporativo = () => {
                 />
               </div>
               <div className="contenido-texto">
-                <h2>Nuestra Visión</h2>
+                <h2 className="text-[2rem]">Nuestra Visión</h2>
                 <p>
                   Ser reconocidos a nivel nacional como una empresa líder en la
                   producción, transformación y exportación de productos y sub
@@ -176,7 +176,7 @@ const Corporativo = () => {
                 />
               </div>
               <div className="contenido-texto">
-                <h2>Principios</h2>
+                <h2 className="text-[2rem]">Principios</h2>
                 <li>Amar a Dios sobre todas las cosas</li>
                 <li>Lealtad</li>
                 <li>Honestidad</li>
@@ -192,7 +192,7 @@ const Corporativo = () => {
                 />
               </div>
               <div className="contenido-texto">
-                <h2>Valores</h2>
+                <h2 className="text-[2rem]">Valores</h2>
                 <li>Pasión por el servicio</li>
                 <li>Trabajo en equipo</li>
                 <li>Enfoque al resultado</li>
@@ -208,7 +208,7 @@ const Corporativo = () => {
 
       {idioma === "ingles" && (
         <div onMouseOver={ocultarEnlaces}>
-          <h1>Philosophy, Principles and Values</h1>
+          <h1 className="text-[2.6rem]">Philosophy, Principles and Values</h1>
           <Link
             to="/corporativo/video-corporativo"
             style={{
@@ -231,7 +231,7 @@ const Corporativo = () => {
                 />
               </div>
               <div className="contenido-texto">
-                <h2>Our Mission</h2>
+                <h2 className="text-[2rem]">Our Mission</h2>
                 <p>
                   Cultivate, transform and trade sustainable products with high
                   quality, based on the constant improvement, framed on
@@ -249,7 +249,7 @@ const Corporativo = () => {
                 />
               </div>
               <div className="contenido-texto">
-                <h2>Our Vision</h2>
+                <h2 className="text-[2rem]">Our Vision</h2>
                 <p>
                   To be recognize at national level as a leading Company on the
                   production, transformation and exportation of products,
@@ -268,7 +268,7 @@ const Corporativo = () => {
                 />
               </div>
               <div className="contenido-texto">
-                <h2>Principles</h2>
+                <h2 className="text-[2rem]">Principles</h2>
                 <li>To love God above all things</li>
                 <li>Loyalty</li>
                 <li>Honesty</li>
@@ -284,7 +284,7 @@ const Corporativo = () => {
                 />
               </div>
               <div className="contenido-texto">
-                <h2>Values</h2>
+                <h2 className="text-[2rem]">Values</h2>
                 <li>Passion for service</li>
                 <li>Team work</li>
                 <li>Focus on results</li>

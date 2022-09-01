@@ -43,7 +43,11 @@ const Productos = () => {
       <Header />
 
       <div onMouseOver={ocultarEnlaces}>
-        {idioma === "español" ? <h1>Productos</h1> : <h1>Product</h1>}
+        {idioma === "español" ? (
+          <h1 className="text-[2.5rem]">Productos</h1>
+        ) : (
+          <h1 className="text-[2.5rem]">Product</h1>
+        )}
 
         <div className="contenedor-imagen"></div>
 
@@ -53,7 +57,7 @@ const Productos = () => {
             className="no-underline text-black"
           >
             <div className="w-[30rem] m-[2rem]">
-              <h4 className="text-center">
+              <h4 className="text-center text-[1.6rem]">
                 {idioma === "español" ? "Chocolates" : "Chocolate"}
               </h4>
               <div className="w-[30rem] h-[30rem]">
@@ -77,7 +81,7 @@ const Productos = () => {
             className="no-underline text-black"
           >
             <div className="w-[30rem] m-[2rem]">
-              <h4 className="text-center">
+              <h4 className="text-center text-[1.6rem]">
                 {idioma === "español" ? "Cacao" : "Cocoa"}
               </h4>
               <div className="w-[30rem] h-[30rem]">
@@ -101,7 +105,7 @@ const Productos = () => {
             className="no-underline text-black"
           >
             <div className="w-[30rem] m-[2rem]">
-              <h4 className="text-center">Mangos</h4>
+              <h4 className="text-center text-[1.6rem]">Mangos</h4>
               <div className="w-[30rem] h-[30rem]">
                 <img
                   className="w-full h-full object-contain"

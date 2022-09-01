@@ -113,9 +113,9 @@ const SobreAgromyss = ({ match }) => {
 
       <div onMouseOver={ocultarEnlaces}>
         {idioma === "español" ? (
-          <h1>Sobre Agromyss</h1>
+          <h1 className="text-[2.6rem]">Sobre Agromyss</h1>
         ) : (
-          <h1>About Agromyss</h1>
+          <h1 className="text-[1.6rem]">About Agromyss</h1>
         )}
 
         <div className="contenedor-imagen"></div>
