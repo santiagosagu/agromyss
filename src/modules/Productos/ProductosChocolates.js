@@ -8,70 +8,15 @@ import { db } from "../../FirebaseConfig";
 
 const Contenedor = Styled.div`
 
-    .producto{
-        margin: 1rem;
 
-        h2{
-            text-align: center;
-            text-transform: uppercase;
-        }
-
-        @media(min-width: 768px){
-            margin-top: 12%;
-        }
-
-        .producto-card{
-            margin: 1rem;
-            
-            @media(min-width: 768px){
-                display: grid;
-                grid-template-columns: 50% 50%;
-                grid-gap: 1rem;
-                padding: 1rem 4rem;
-
-            }
-
-            @media(min-width: 1200px){
-                width: 70rem;
-                display: grid;
-                grid-template-columns: 33.3% 33.3% 33.3%;
-                grid-gap: 1rem;
-                margin: 4rem auto;
-            }
-            
-
-            .producto-card-content{
-                text-align: center;
-                margin-bottom: 2rem;
-                border-bottom: 1px solid #e1e1e1;
-
-                
-
-                @media(min-width: 768px){
-                    border: none
-                }
-
-                img{
-                    width: 100%;
-
-                    @media(min-width: 768px){
-                        height: 10rem;
-                    }
-
-                    @media(min-width: 1200px){
-                        height: 20rem;
-                    }
-                    
-                }
-
-                p{
+    p{
                     font-size: 1.2rem;
                     border: 1px solid rgb(13, 130, 121);
-                    display: inline-block;
+                    // display: inline-block;
                     padding: 0.5rem 1rem;
-                    /* margin-right: 1rem; */
                     color: rgb(13, 130, 121);
                 }
+
 
                 .carrito{
                     :hover{
@@ -81,10 +26,6 @@ const Contenedor = Styled.div`
                         cursor: pointer;
                     }
                 }
-                
-            }
-        }
-    }
 `;
 
 // const productos = [
@@ -277,24 +218,33 @@ const ProductosChocolatinas = ({ match, history }) => {
       <Contenedor onMouseOver={ocultarEnlaces}>
         {idioma === "español" && (
           <>
-            <div className="producto">
-              <h2 className="text-[2.5rem]">Chocolatinas</h2>
-              <div className="producto-card">
+            <div className=" flex flex-col justify-center items-center">
+              <h2 className="text-[2.5rem] lg:mt-44 text-center">
+                Chocolatinas
+              </h2>
+              <div className="flex flex-wrap w-4/5 justify-center gap-9 mt-9">
                 {chocolatinas.map((product) => (
-                  <div className="producto-card-content">
-                    <img
-                      src={product.imagenes[0]}
-                      alt=""
-                      onClick={() => verProducto("chocolatinas", product.url)}
-                    />
-                    <h5>{product.nombre}</h5>
-                    <p>$ {product.precio}</p>
-                    <p
-                      className="carrito"
-                      onClick={() => agregarCarrito(product)}
-                    >
-                      Añadir al Carrito
-                    </p>
+                  <div className="w-[400px] h-[600px] p-1 mb-8 flex flex-col justify-between">
+                    <div className="w-[400px] h-[400px]">
+                      <img
+                        src={product.imagenes[0]}
+                        alt=""
+                        onClick={() => verProducto("chocolatinas", product.url)}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    <h5 className="text-xl text-center font-bold">
+                      {product.nombreProducto}
+                    </h5>
+                    <div className="flex justify-center mt-4 items-end">
+                      <p>$ {product.precio}</p>
+                      <p
+                        className="carrito"
+                        onClick={() => agregarCarrito(product)}
+                      >
+                        Añadir al Carrito
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>

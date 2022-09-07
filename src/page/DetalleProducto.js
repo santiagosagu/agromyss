@@ -14,7 +14,7 @@ const Contenedor = Styled.div`
             display: grid;
             grid-template-columns: 50% 50%;
             grid-gap: 1rem;
-            height: 500px;
+             height: 610px;
             padding: 3rem 6rem;
         }
 
@@ -28,7 +28,7 @@ const Contenedor = Styled.div`
             background-repeat: no-repeat;
 
             @media(min-width: 1200px){
-              height: 450px;
+              // height: 450px;
                 padding: 2rem 5rem;
             }
         }
@@ -72,8 +72,10 @@ const Contenedor = Styled.div`
         }
     }
 
+    
+
     .segunda-sesion{
-        
+
         margin: 1rem;
             color: #313131;
 
@@ -85,9 +87,6 @@ const Contenedor = Styled.div`
             padding: 3rem 6rem;
         }
 
-        .tabla{
-            width: 100%;
-        }
 
         .informacion-producto{
             hr{
@@ -106,6 +105,10 @@ const Contenedor = Styled.div`
             }
         }
     }
+
+    
+
+  
 `;
 
 const DetalleProducto = ({ match }) => {
@@ -146,6 +149,8 @@ const DetalleProducto = ({ match }) => {
     }
   }, [match.params.detalle, match.params.producto, todosProductosDB]);
 
+  console.log(productoActual);
+
   return (
     <Contenedor>
       {productoActual.length > 0 && (
@@ -164,10 +169,18 @@ const DetalleProducto = ({ match }) => {
                 showThumbs={false}
               >
                 {productoActual[0].imagenes.map((image) => (
-                  <div
-                    className="imagen"
-                    style={{ backgroundImage: `url(${image})` }}
-                  ></div>
+                  // <div
+                  //   className="imagen"
+                  //   style={{ backgroundImage: `url(${image})` }}
+                  // ></div>
+                  <div className="lg:w-[600px] lg:h-[600px]">
+                    <img
+                      src={image}
+                      alt=""
+                      // onClick={() => verProducto("chocolatinas", product.url)}
+                      className="w-full h-full"
+                    />
+                  </div>
                 ))}
 
                 {/* <div className='imagen' style={{ backgroundImage: "url(https://www.evok.com.co/wp-content/uploads/2019/10/BarrasAmargo-7715.png)" }}>
@@ -198,31 +211,105 @@ const DetalleProducto = ({ match }) => {
           </div>
 
           <div className="segunda-sesion">
-            <div className="tabla">
-              <table className="table table-striped">
-                <tbody>
-                  <tr>
-                    <td>Calorías</td>
-                    <td>{productoActual[0].infoNutricional[0].calorias}</td>
-                  </tr>
-                  <tr>
-                    <td>Calorías Grasa</td>
-                    <td>
-                      {productoActual[0].infoNutricional[0].caloriasGrasa}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Grasa Total</td>
-                    <td>13g</td>
-                    <td>20%</td>
-                  </tr>
-                  <tr>
-                    <td>Grasa Saturada</td>
-                    <td>8g</td>
-                    <td>40%</td>
-                  </tr>
-                </tbody>
+            <div className="nutrifacts-html">
+              <table>
+                <tr>
+                  <td>
+                    <strong>Cantidad por Porcion</strong>{" "}
+                  </td>
+                  <td className="align-text-right">
+                    {productoActual[0].infoNutricional.cantidadPorcion}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Calorias</strong>{" "}
+                    {productoActual[0].infoNutricional.calorias}
+                  </td>
+                  <td className="align-text-right">
+                    Calorias de grasa{" "}
+                    {productoActual[0].infoNutricional.caloriasGrasa}
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td className="align-text-right">
+                    % <strong>Valor Diario*</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Grasas Totales</strong>{" "}
+                    {productoActual[0].infoNutricional.grasaTotal}
+                  </td>
+                  <td className="align-text-right">
+                    {productoActual[0].infoNutricional.grasaTotalValorDiario}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Grasas Saturadas{" "}
+                    {productoActual[0].infoNutricional.grasasSaturadas}
+                  </td>
+                  <td className="align-text-right">
+                    {
+                      productoActual[0].infoNutricional
+                        .grasasSaturadasValorDiario
+                    }
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Colesterol</strong>{" "}
+                    {productoActual[0].infoNutricional.colesterol}
+                  </td>
+                  <td className="align-text-right">
+                    {productoActual[0].infoNutricional.colesterolValorDiario}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Sodio</strong>{" "}
+                    {productoActual[0].infoNutricional.sodio}
+                  </td>
+                  <td className="align-text-right">
+                    {productoActual[0].infoNutricional.sodioValorDiario}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Carbohidratos Totales</strong>{" "}
+                    {productoActual[0].infoNutricional.carbohidratosTotales}
+                  </td>
+                  <td className="align-text-right">
+                    {
+                      productoActual[0].infoNutricional
+                        .carbohidratosTotalesValorDiario
+                    }
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Fibra Dietaria{" "}
+                    {productoActual[0].infoNutricional.fibraDietaria}
+                  </td>
+                  <td className="align-text-right">
+                    {productoActual[0].infoNutricional.fibraDietariaValorDiario}
+                  </td>
+                </tr>
+                <tr>
+                  <td>Azucares {productoActual[0].infoNutricional.azucares}</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Proteinas</strong>{" "}
+                    {productoActual[0].infoNutricional.proteinas}
+                  </td>
+                  <td></td>
+                </tr>
               </table>
+              <div className="separator"></div>
             </div>
 
             <div className="informacion-producto">
@@ -237,8 +324,13 @@ const DetalleProducto = ({ match }) => {
                 <li>Peso Bruto: 152g</li>
               </div>
               <div className="informacion-producto-sesion2">
-                <li>Contiene: </li>
-                <li>1 barra de 90g sin agregados.</li>
+                <li>
+                  <strong>Contiene:</strong>
+                </li>
+                <li>
+                  1 barra de {productoActual[0].infoNutricional.cantidadPorcion}{" "}
+                  sin agregados.
+                </li>
               </div>
             </div>
           </div>
