@@ -160,7 +160,7 @@ const HomeModuleEspañol = ({
         </div>
       </div>
 
-      <form style={{ position: "absolute", bottom: "10%", right: 0 }}>
+      {/* <form style={{ position: "absolute", bottom: "10%", right: 0 }}>
         <script
           src="https://checkout.wompi.co/widget.js"
           data-render="button pago"
@@ -190,7 +190,7 @@ const HomeModuleEspañol = ({
         />
 
         <button>holis</button>
-      </form>
+      </form> */}
 
       {/* <button onClick={() => prueba()}>prueba</button> */}
     </>
