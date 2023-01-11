@@ -8,6 +8,48 @@ const HomeModuleEspañol = ({
   iconoIndustria,
   iconoServicios,
 }) => {
+  // const prueba = () => {
+  //   //   //   // const widget = useRef(null);
+  //   const testWidget = new WidgetCheckout();
+
+  //   console.log(testWidget);
+
+  //   // var widget = new WidgetCheckout({
+  //   //   currency: "COP",
+  //   //   amountInCents: 2490000,
+  //   //   reference: "AD002901221",
+  //   //   publicKey: "pub_fENJ3hdTJxdzs3hd35PxDBSMB4f85VrgiY3b6s1",
+  //   //   redirectUrl: "https://transaction-redirect.wompi.co/check", // Opcional
+  //   //   taxInCents: {
+  //   //     // Opcional
+  //   //     vat: 1900,
+  //   //     consumption: 800,
+  //   //   },
+  //   //   customerData: {
+  //   //     // Opcional
+  //   //     email: "lola@gmail.com",
+  //   //     fullName: "Lola Flores",
+  //   //     phoneNumber: "3040777777",
+  //   //     phoneNumberPrefix: "+57",
+  //   //     legalId: "123456789",
+  //   //     legalIdType: "CC",
+  //   //   },
+  //   //   shippingAddress: {
+  //   //     // Opcional
+  //   //     addressLine1: "Calle 123 # 4-5",
+  //   //     city: "Bogota",
+  //   //     phoneNumber: "3019444444",
+  //   //     region: "Cundinamarca",
+  //   //     country: "CO",
+  //   //   },
+  //   // });
+  //   // widget.open(function (result) {
+  //   //   var transaction = result.transaction;
+  //   //   console.log("Transaction ID: ", transaction.id);
+  //   //   console.log("Transaction object: ", transaction);
+  //   // });
+  // };
+
   return (
     <>
       <div onMouseOver={ocultarEnlaces}>
@@ -118,27 +160,39 @@ const HomeModuleEspañol = ({
         </div>
       </div>
 
-      {/* <form action="https://checkout.wompi.co/p/" method="GET">
-            <input
-              type="hidden"
-              name="public-key"
-              value="pub_test_sU0PuSKagjNH0o30MBmDlpVeDsU8yOsw"
-            />
+      <form style={{ position: "absolute", bottom: "10%", right: 0 }}>
+        <script
+          src="https://checkout.wompi.co/widget.js"
+          data-render="button pago"
+          data-public-key="pub_test_X0zDA9xoKdePzhd8a0x9HAez7HgGO2fH"
+          data-currency="COP"
+          data-amount-in-cents="4950000"
+          data-reference="4XMPGKWWPKWQ"
+          // data-signature:integrity="37c8407747e595535433ef8f6a811d853cd943046624a0ec04662b17bbf33bf5"
+        ></script>
+      </form>
 
-            <input type="hidden" name="currency" value="COP" />
+      <form action="https://checkout.wompi.co/p/" method="GET">
+        <input
+          type="hidden"
+          name="public-key"
+          value="pub_test_sU0PuSKagjNH0o30MBmDlpVeDsU8yOsw"
+        />
 
-            <input type="hidden" name="amount-in-cents" value="5000000" />
-            <input type="hidden" name="reference" value="id2" />
-            <input
-              type="hidden"
-              name="redirect-url"
-              value="http://localhost:3000"
-            />
+        <input type="hidden" name="currency" value="COP" />
 
-            <button>holis</button>
-          </form>
+        <input type="hidden" name="amount-in-cents" value="5000000" />
+        <input type="hidden" name="reference" value="id6" />
+        <input
+          type="hidden"
+          name="redirect-url"
+          value="http://localhost:3000"
+        />
 
-          <button onClick={prueba}>prueba</button> */}
+        <button>holis</button>
+      </form>
+
+      {/* <button onClick={() => prueba()}>prueba</button> */}
     </>
   );
 };

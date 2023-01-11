@@ -539,6 +539,15 @@ const Header = () => {
                                 Política de Inquietudes Éticas
                               </Link>
                             </li>
+                            <li>
+                              <a
+                                href="https://app.powerbi.com/view?r=eyJrIjoiZDcyZTc5YzQtMjAzMi00Zjg2LWI5ZTUtYjUxNWJiMWEwODE2IiwidCI6Ijk5ZjdiNTVlLTljYmUtNDY3Yi04MTQzLTkxOTc4MjkxOGFmYiIsImMiOjR9"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                Ver nuestro centro de datos
+                              </a>
+                            </li>
                           </ul>
                         </>
                       )}
@@ -924,6 +933,15 @@ const Header = () => {
                               <Link to="/sobre-agromyss/politica-de-inquietudes-eticas">
                                 Ethical concerns policy
                               </Link>
+                            </li>
+                            <li>
+                              <a
+                                href="https://app.powerbi.com/view?r=eyJrIjoiZDcyZTc5YzQtMjAzMi00Zjg2LWI5ZTUtYjUxNWJiMWEwODE2IiwidCI6Ijk5ZjdiNTVlLTljYmUtNDY3Yi04MTQzLTkxOTc4MjkxOGFmYiIsImMiOjR9"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                See our data center
+                              </a>
                             </li>
                           </ul>
                         </>

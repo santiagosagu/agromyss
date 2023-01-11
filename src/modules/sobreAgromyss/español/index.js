@@ -46,7 +46,7 @@ const SobreAgromyssEspañol = () => {
   return (
     <Component>
       <Element name="responsabilidad social y ambiental">
-        <div className="container">
+        <div className="container mt-6 ">
           <h4>Responsabilidad Social y Ambiental:</h4>
 
           <img
